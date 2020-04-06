@@ -17,18 +17,22 @@ import java.util.ArrayList;
  * @author Chris Bass
  */
 public class Track implements Serializable {
-    public int deleteUnique;
-    public String distinguish;
-    public  int trackId;
-    public String name;
-    public int albumId;
-    public int mediaTypeId;
-    public int genreId;
-    public String composer;
-    public int milliseconds;
-    public int bytes;
-    public double unitPrice;
 
+    private int trackId;
+    private String name;
+    private int albumId;
+    private int mediaTypeId;
+    private int genreId;
+    private String composer;
+    private int milliseconds;
+    private int bytes;
+    private double unitPrice;
+    private boolean isEdit; // USED TO CHECK IF EDIT IS CALLED
+    private boolean isDeleteName;// USED TO CHECK DELETE USING NAME OR ID
+    private boolean isDelete;// used to check if deleting
+    private boolean isViewTracks;// USED O CHECK IF VIEWING TRACK IS CALLEDprivate boolean isViewTracks;// USED O CHECK IF VIEWING TRACK IS CALLED
+    
+    // used when adding/viewing track/?Deleting(by adding is edit)
     public Track(int trackId, String name, int albumId, int mediaTypeId, int genreId, String composer, int milliseconds, int bytes, double unitPrice) {
         this.trackId = trackId;
         this.name = name;
@@ -39,31 +43,47 @@ public class Track implements Serializable {
         this.milliseconds = milliseconds;
         this.bytes = bytes;
         this.unitPrice = unitPrice;
+
     }
-    
-    // used to 
-    public Track(String distinguish){
-    this.distinguish = distinguish;
+
+    // used to edit tracks
+
+    public Track(int trackId, String name, int albumId, int mediaTypeId, int genreId, String composer, int milliseconds, int bytes, double unitPrice, boolean isEdit) {
+        this.trackId = trackId;
+        this.name = name;
+        this.albumId = albumId;
+        this.mediaTypeId = mediaTypeId;
+        this.genreId = genreId;
+        this.composer = composer;
+        this.milliseconds = milliseconds;
+        this.bytes = bytes;
+        this.unitPrice = unitPrice;
+        this.isEdit = isEdit;
+
     }
+
+    // used to view tracks
+    public Track(boolean viewTracks) {
+        this.isViewTracks = viewTracks;
+    }
+
     // used to delete track using track name
-    public Track(String name, int unique){
-    this.name = name;
-    this.deleteUnique = unique;
+    public Track(boolean isDelete,String name, boolean isDeleteName) {
+        this.isDelete = isDelete;
+        this.name = name;
+        this.isDeleteName = isDeleteName;
     }
+
     // used to delete track using track id
-    public Track(int trackId, int unique){
-    this.trackId = trackId;
-    this.deleteUnique = unique;
+    public Track(boolean isDelete,int trackId, boolean isDeleteName) {
+        this.isDelete = isDelete;
+        this.trackId = trackId;
+        this.isDeleteName = isDeleteName;
     }
-    
-   
-    
 
     public int getTrackId() {
         return trackId;
     }
-    
-    
 
     public void setTrackId(int trackId) {
         this.trackId = trackId;
@@ -132,11 +152,42 @@ public class Track implements Serializable {
     public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
     }
+
+    public boolean getIsEdit() {
+        return isEdit;
+    }
+
+    public void setIsEdit(boolean isEdit) {
+        this.isEdit = isEdit;
+    }
+
+    public Boolean getisDeleteName() {
+        return isDeleteName;
+    }
+
+    public void setisDeleteName(Boolean isDeleteName) {
+        this.isDeleteName = isDeleteName;
+    }
+
     
+     public Boolean getisDelete() {
+        return isDelete;
+    }
+
+    public void setisDelete(Boolean isDelete) {
+        this.isDelete = isDelete;
+    }
+    public boolean getisViewTracks() {
+        return isViewTracks;
+    }
+
+    public void setisViewTracks(boolean isViewTracks) {
+        this.isViewTracks = isViewTracks;
+    }
 
     @Override
     public String toString() {
-        return  String.valueOf(trackId) + " | "
+        return String.valueOf(trackId) + " | "
                 + name + " | "
                 + String.valueOf(albumId) + " | "
                 + String.valueOf(mediaTypeId) + " | "

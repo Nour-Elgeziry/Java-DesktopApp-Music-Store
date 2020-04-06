@@ -23,6 +23,111 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                  <Component id="unitPriceField" min="-2" pref="99" max="-2" attributes="0"/>
+                  <Component id="millisecondsField" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                  <Component id="bytesField" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="genreIDField" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="trackIDField" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="trackNameField" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="albumIDField" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="mediaTypeIDField" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="composerField" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="editUnitPriceField" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                                      <Component id="editMillisecondsField" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                                      <Component id="editBytesField" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="editGenreIDField" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="editTrackIDField" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="editTrackNameField" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="editAlbumIDField" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="editMediaTypeIDField" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="editComposerField" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="addTrackButton2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="addTrackButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                              <Component id="deleteTrackButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="deleteTrackNameField" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="deleteTrackIDField" min="-2" pref="66" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                              <Component id="addGenreButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="genreIdField" max="32767" attributes="0"/>
+                                  <Component id="genreTextField" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="editGenreButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="editGenreNameField" max="32767" attributes="0"/>
+                                  <Component id="editGenreIdField" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                              <Component id="deleteGenreButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="18" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="deleteGenreNameField" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Component id="deleteGenreIdField" min="-2" pref="57" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -39,67 +144,6 @@
                       <Component id="statusLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                          <Component id="unitPriceField" min="-2" pref="99" max="-2" attributes="0"/>
-                          <Component id="millisecondsField" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                          <Component id="bytesField" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="genreIDField" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="trackIDField" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="trackNameField" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="albumIDField" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="mediaTypeIDField" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="composerField" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="editUnitPriceField1" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                                              <Component id="editMillisecondsField1" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                                              <Component id="editBytesField1" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="editGenreIDField1" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="editTrackIDField1" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="editTrackNameField1" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="editAlbumIDField1" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="editMediaTypeIDField1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="edeitComposerField1" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="addTrackButton2" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="addTrackButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="deleteTrackNameField" min="-2" pref="66" max="-2" attributes="0"/>
-                                          <Component id="deleteTrackIDField" min="-2" pref="66" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                      <Component id="deleteTrackButton" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="297" max="-2" attributes="0"/>
                       <Component id="connectToServerButton" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -108,7 +152,7 @@
                       <Component id="jLabel1" min="-2" pref="139" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="522" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -133,6 +177,9 @@
                   <Component id="addTrackButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="deleteTrackButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="addTrackButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="addGenreButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="editGenreButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="deleteGenreButton" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -155,31 +202,50 @@
                       <Component id="unitPriceField" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="editTrackIDField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="deleteTrackNameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="editTrackIDField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="deleteTrackNameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="editTrackNameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="deleteTrackIDField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="genreTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editGenreNameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="deleteGenreIdField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="editAlbumIDField" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="editMediaTypeIDField" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <Component id="editGenreIDField" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="editComposerField" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="editGenreIdField" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="genreIdField" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="deleteGenreNameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="editTrackNameField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="deleteTrackIDField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="editMillisecondsField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="editAlbumIDField1" min="-2" max="-2" attributes="0"/>
+                      <Component id="editBytesField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="editMediaTypeIDField1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                      <Component id="editGenreIDField1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="edeitComposerField1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="editMillisecondsField1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="editBytesField1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="editUnitPriceField1" min="-2" max="-2" attributes="0"/>
+                      <Component id="editUnitPriceField" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="62" max="32767" attributes="0"/>
@@ -308,7 +374,6 @@
     <Component class="javax.swing.JButton" name="deleteTrackButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Delete Track"/>
-        <Property name="actionCommand" type="java.lang.String" value="Delete Track"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteTrackButtonActionPerformed"/>
@@ -339,49 +404,111 @@
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="editUnitPriceField1">
+    <Component class="javax.swing.JTextField" name="editUnitPriceField">
       <Properties>
         <Property name="text" type="java.lang.String" value="Unit Price"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="editTrackNameField1">
+    <Component class="javax.swing.JTextField" name="editTrackNameField">
       <Properties>
         <Property name="text" type="java.lang.String" value="Track Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="editAlbumIDField1">
+    <Component class="javax.swing.JTextField" name="editAlbumIDField">
       <Properties>
         <Property name="text" type="java.lang.String" value="Album ID"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="editMediaTypeIDField1">
+    <Component class="javax.swing.JTextField" name="editMediaTypeIDField">
       <Properties>
         <Property name="text" type="java.lang.String" value="Media Type ID"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="editGenreIDField1">
+    <Component class="javax.swing.JTextField" name="editGenreIDField">
       <Properties>
         <Property name="text" type="java.lang.String" value="Genre ID"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="edeitComposerField1">
+    <Component class="javax.swing.JTextField" name="editComposerField">
       <Properties>
         <Property name="text" type="java.lang.String" value="Composer"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="editMillisecondsField1">
+    <Component class="javax.swing.JTextField" name="editMillisecondsField">
       <Properties>
         <Property name="text" type="java.lang.String" value="Milliseconds"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="editBytesField1">
+    <Component class="javax.swing.JTextField" name="editBytesField">
       <Properties>
         <Property name="text" type="java.lang.String" value="Bytes"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="editTrackIDField1">
+    <Component class="javax.swing.JTextField" name="editTrackIDField">
       <Properties>
         <Property name="text" type="java.lang.String" value="Track ID"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="addGenreButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add Genre"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addGenreButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="editGenreButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Edit Genre"/>
+        <Property name="actionCommand" type="java.lang.String" value="Edit Genre"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editGenreButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="deleteGenreButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Delete Genre"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteGenreButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="genreTextField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Genre Name"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="genreIdField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Genre  ID"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="editGenreIdField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Genre ID"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="editGenreNameField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Genre Name"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="deleteGenreNameField">
+    </Component>
+    <Component class="javax.swing.JTextField" name="deleteGenreIdField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Using Track Name"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Using Track ID"/>
       </Properties>
     </Component>
   </SubComponents>

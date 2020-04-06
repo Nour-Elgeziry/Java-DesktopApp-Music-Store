@@ -5,6 +5,7 @@
  */
 package sqlitechinookcw;
 
+import sqlitechinookcw.Genre;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -31,9 +32,8 @@ public class ClientHandlerThread implements Runnable {
     String getWhat = "";
     String deleteWhat = "";
     String selectSQL = "";
-    
-
-    Track trackRead;
+    String meesageToDelte = "";
+    Parcel parcelRead;
 
     private final Socket socket;
     ArrayList<Track> trackList = new ArrayList<>();
@@ -49,7 +49,7 @@ public class ClientHandlerThread implements Runnable {
      * Constructor just initialises the connection to client.
      *
      * @param socket the socket to establish the connection to client.
-     * @param arrayList
+     * @param genreList
      * @param trackList
      * @param hashMapNames a reference to the lookup table for getting email.
      * @throws IOException if an I/O error occurs when creating the input and
@@ -73,46 +73,70 @@ public class ClientHandlerThread implements Runnable {
 
         try {
             System.out.println("Server: Waiting for data from client...");
-            while ((trackRead = (Track) objectInputStream.readObject()) != null) {
 
-                System.out.println("Server: Read data from client: " + trackRead);
-                if ("All Tracks".equals(trackRead.distinguish)) {
-                    getWhat = "Tracks";
-                    readAll(trackList);
-                    objectOutputStream.writeObject(trackList);
-                    System.out.println("main:");
-                    for (Track t : trackList) {
-                        System.out.print(t);
-                        System.out.print(" | ");
-                        System.out.println("");
+            while ((parcelRead = (Parcel) objectInputStream.readObject()) != null) {
 
+                System.out.println("Server: Read data from client: " + parcelRead);
+
+                if (parcelRead.getIsTrack() == true) {
+
+                    if (parcelRead.getTrack().getisViewTracks() == true) {
+                        viewTracks(trackList);
+                        objectOutputStream.writeObject(trackList);
+                        System.out.println("main:");
+                        for (Track t : trackList) {
+                            System.out.print(t);
+                            System.out.print(" | ");
+                            System.out.println("");
+
+                        }
+                    } else if (parcelRead.getTrack().getisDelete() == true) {
+
+                        if (parcelRead.getTrack().getisDeleteName() == true) {
+                            deleteWhat = "Track Name"; // used to determine the value of the setString
+                            selectSQL = "DELETE FROM tracks Where Name =?";
+                            deleteTrack();
+                        } else if (parcelRead.getTrack().getisDeleteName() == false) {
+                            deleteWhat = "Track ID"; // used to determine the value of the setString
+                            selectSQL = "DELETE FROM tracks Where TrackId =?";
+                            deleteTrack();
+                        }
+
+                    } else if (parcelRead.getTrack().getIsEdit() == true) {
+                        editTrack();
+                    } else {
+                        addTrack();
                     }
 
-                } else if ("All Genres".equals(trackRead.distinguish)) {
-                    getWhat = "Genres";
-                    readAll(genreList);
-                    objectOutputStream.writeObject(genreList);
-                    System.out.println("main:");
-                    for (Genre g : genreList) {
-                        System.out.print(g);
-                        System.out.print(" | ");
-                        System.out.println("");
+                } else if (parcelRead.getIsTrack() == false) {
+                    if (parcelRead.getGenre().getIsViewGenre() == true) {
+                        viewGenres(genreList);
+                        objectOutputStream.writeObject(genreList);
+                        System.out.println("main:");
+                        for (Genre g : genreList) {
+                            System.out.print(g);
+                            System.out.print(" | ");
+                            System.out.println("");
 
-                    }
+                        }
+                    } else if (parcelRead.getGenre().getIsEdit() == true) {
+                        editGenre();
+                    } else if(parcelRead.getGenre().getIsDelete() == true){
+                        
+                        if(parcelRead.getGenre().getIsDeleteName() == true){
+                            deleteWhat = "Genre Name";
+                            selectSQL = "DELETE FROM genres Where Name =?";
+                            deleteGenre();
+                        }else if (parcelRead.getGenre().getIsDeleteName() == false){
+                            deleteWhat = "Genre ID";
+                            selectSQL = "DELETE FROM genres Where GenreId =?";
+                            deleteGenre();
+                        }
+                    }else{addGenre();}
 
-                } else if (trackRead.name != null && trackRead.composer != null) {
-
-                    insertTrack();
-
-                } else if (trackRead.trackId != 0 && trackRead.deleteUnique == 0000) {
-                    deleteWhat = "Track ID";
-                    deleteTrack();
-                } else if(trackRead.name != null && trackRead.deleteUnique == 0000) { 
-                    deleteWhat = "Track Name";
-                    deleteTrack();
                 }
-            }
 
+            }
         } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(ClientHandlerThread.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
@@ -131,59 +155,31 @@ public class ClientHandlerThread implements Runnable {
         System.out.println("ClientHandlerThread" + connectionNumber + ": " + say);
     }
 
-    public synchronized void readAll(ArrayList populateList) { // selectSQL = "INSERT INTO tracks(TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES(?,?,?,?,?,?,?,?,?)";
+    public synchronized void viewTracks(ArrayList populateList) { // selectSQL = "INSERT INTO tracks(TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES(?,?,?,?,?,?,?,?,?)";
 
-        System.out.println("recieved: " + getWhat);
+        this.trackList = populateList;
 
-        switch (getWhat) {
-            case "Tracks": {
-                this.trackList = populateList;
+        selectSQL = "SELECT * FROM tracks";
 
-                selectSQL = "SELECT * FROM tracks limit 10";
-                break;
-            }
-            case "Genres": {
-                this.genreList = populateList;
-                selectSQL = "SELECT * FROM genres limit 10";
-                break;
-            } // lets just get the first 10 records for testing}
-        }
-
-        //String selectSQL = "SELECT * FROM tracks limit 10"; // lets just get the first 10 records for testing
-        System.out.println("recieved2: " + selectSQL);
         try (Connection conn = ConnectionFactory.getConnection(); // auto close the connection object after try
                 PreparedStatement prep = conn.prepareStatement(selectSQL);) {
-            prep.setString(1, trackRead.name);
+
             ResultSet resultSet = prep.executeQuery();
-            switch (selectSQL) {
-                case "SELECT * FROM tracks limit 10":
-                    // now rows
-                    while (resultSet.next()) {
-                        Track track = new Track(
-                                resultSet.getInt(1),
-                                resultSet.getString(2),
-                                resultSet.getInt(3),
-                                resultSet.getInt(4),
-                                resultSet.getInt(5),
-                                resultSet.getString(6),
-                                resultSet.getInt(7),
-                                resultSet.getInt(8),
-                                resultSet.getDouble(9));
-                        populateList.add(track);
 
-                    }
-                    break;
-                case "SELECT * FROM genres limit 10":
+            // now rows
+            while (resultSet.next()) {
+                Track track = new Track(
+                        resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getInt(3),
+                        resultSet.getInt(4),
+                        resultSet.getInt(5),
+                        resultSet.getString(6),
+                        resultSet.getInt(7),
+                        resultSet.getInt(8),
+                        resultSet.getDouble(9));
+                populateList.add(track);
 
-                    while (resultSet.next()) {
-                        Genre genre = new Genre(
-                                resultSet.getInt(1),
-                                resultSet.getString(2));
-                        populateList.add(genre);
-
-                    }
-
-                    break;
             }
 
         } catch (SQLException ex) {
@@ -191,7 +187,7 @@ public class ClientHandlerThread implements Runnable {
         }
     }
 
-    public synchronized void insertTrack() {
+    public synchronized void addTrack() {
 
         selectSQL = "INSERT INTO tracks(TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES(?,?,?,?,?,?,?,?,?)";
 
@@ -199,19 +195,19 @@ public class ClientHandlerThread implements Runnable {
         System.out.println("recieved2: " + selectSQL);
         try (Connection conn = ConnectionFactory.getConnection(); // auto close the connection object after try
                 PreparedStatement prep = conn.prepareStatement(selectSQL);) {
-            prep.setString(1, Integer.toString(trackRead.trackId));
-            prep.setString(2, trackRead.name);
-            prep.setString(3, Integer.toString(trackRead.albumId));
-            prep.setString(4, Integer.toString(trackRead.mediaTypeId));
-            prep.setString(5, Integer.toString(trackRead.genreId));
-            prep.setString(6, trackRead.composer);
-            prep.setString(7, Integer.toString(trackRead.milliseconds));
-            prep.setString(8, Integer.toString(trackRead.bytes));
-            prep.setString(9, Double.toString(trackRead.unitPrice));
+            prep.setString(1, Integer.toString(parcelRead.getTrack().getTrackId()));
+            prep.setString(2, parcelRead.getTrack().getName());
+            prep.setString(3, Integer.toString(parcelRead.getTrack().getAlbumId()));
+            prep.setString(4, Integer.toString(parcelRead.getTrack().getMediaTypeId()));
+            prep.setString(5, Integer.toString(parcelRead.getTrack().getGenreId()));
+            prep.setString(6, parcelRead.getTrack().getComposer());
+            prep.setString(7, Integer.toString(parcelRead.getTrack().getMilliseconds()));
+            prep.setString(8, Integer.toString(parcelRead.getTrack().getBytes()));
+            prep.setString(9, Double.toString(parcelRead.getTrack().getUnitPrice()));
 
             prep.executeUpdate();
             JOptionPane.showMessageDialog(null, "Inserted successfully to Data Base");
-            System.out.print("Inserted succesfuly");
+            System.out.print("Inserted succesfuly to Track Table");
 
         } catch (SQLException ex) {
             Logger.getLogger(SQLiteChinookCw.class.getName()).log(Level.SEVERE, null, ex);
@@ -219,24 +215,111 @@ public class ClientHandlerThread implements Runnable {
     }
 
     public synchronized void deleteTrack() {
-        
-        if ("Track ID".equals(deleteWhat)){
-            selectSQL = "DELETE FROM tracks Where TrackId =?";
-        }else if ("Track Name".equals(deleteWhat)){
-             selectSQL = "DELETE FROM tracks Where Name =?";
-        }
 
-        
+        //selectSQL = "DELETE FROM tracks Where TrackId =?";
+        //String selectSQL = "SELECT * FROM tracks limit 10"; // lets just get the first 10 records for testing
+        System.out.println("recieved2: " + selectSQL);
+        try (Connection conn = ConnectionFactory.getConnection(); // auto close the connection object after try
+                PreparedStatement prep = conn.prepareStatement(selectSQL);) {
+            if ("Track ID".equals(deleteWhat)) {
+                prep.setString(1, Integer.toString(parcelRead.getTrack().getTrackId()));
+            } else if ("Track Name".equals(deleteWhat)) {
+                prep.setString(1, (parcelRead.getTrack().getName()));;
+            }
+            prep.executeUpdate();
+            System.out.print("Deleted succesfuly");
+            JOptionPane.showMessageDialog(null, "Deleted succesfully");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLiteChinookCw.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public synchronized void editTrack() {
+        selectSQL = "UPDATE tracks SET TrackId='" + parcelRead.getTrack().getTrackId() + "' ,Name='" + parcelRead.getTrack().getName() + "', AlbumId='" + parcelRead.getTrack().getAlbumId() + "', MediaTypeId='" + parcelRead.getTrack().getMediaTypeId() + "', GenreId='" + parcelRead.getTrack().getGenreId() + "' ,Composer='" + parcelRead.getTrack().getComposer() + "',Milliseconds='" + parcelRead.getTrack().getMilliseconds() + "', Bytes='" + parcelRead.getTrack().getBytes() + "', UnitPrice='" + parcelRead.getTrack().getUnitPrice() + "' WHERE TrackId='" + parcelRead.getTrack().getTrackId() + "'";
+
+        try (Connection conn = ConnectionFactory.getConnection(); // auto close the connection object after try
+                PreparedStatement prep = conn.prepareStatement(selectSQL);) {
+
+            prep.executeUpdate();
+            System.out.print("Updated succesfuly");
+            JOptionPane.showMessageDialog(null, "Updated  succesfully");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLiteChinookCw.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public synchronized void viewGenres(ArrayList populateList) {
+
+        this.genreList = populateList;
+
+        selectSQL = "SELECT * FROM genres";
+
+        try (Connection conn = ConnectionFactory.getConnection(); // auto close the connection object after try
+                PreparedStatement prep = conn.prepareStatement(selectSQL);) {
+
+            ResultSet resultSet = prep.executeQuery();
+
+            // now rows
+            while (resultSet.next()) {
+                Genre genre = new Genre(
+                        resultSet.getInt(1),
+                        resultSet.getString(2));
+                populateList.add(genre);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLiteChinookCw.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public synchronized void addGenre() {
+
+        selectSQL = "INSERT INTO genres(GenreId, Name) VALUES(?,?)";
 
         //String selectSQL = "SELECT * FROM tracks limit 10"; // lets just get the first 10 records for testing
         System.out.println("recieved2: " + selectSQL);
         try (Connection conn = ConnectionFactory.getConnection(); // auto close the connection object after try
                 PreparedStatement prep = conn.prepareStatement(selectSQL);) {
-             if ("Track ID".equals(deleteWhat)){
-            prep.setString(1, Integer.toString(trackRead.trackId));
-        }else if ("Track Name".equals(deleteWhat)){
-             prep.setString(1, (trackRead.name));;
+            prep.setString(1, Integer.toString(parcelRead.getGenre().getGenreId()));
+            prep.setString(2, parcelRead.getGenre().getName());
+
+            prep.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Inserted successfully to Data Base");
+            System.out.print("Inserted succesfuly to Genre Table");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLiteChinookCw.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public synchronized void editGenre() {
+        selectSQL = "UPDATE genres SET GenreId='" + parcelRead.getGenre().getGenreId() + "' ,Name='" + parcelRead.getGenre().getName() + "'WHERE GenreId='" + parcelRead.getGenre().getGenreId() + "'";
+
+        try (Connection conn = ConnectionFactory.getConnection(); // auto close the connection object after try
+                PreparedStatement prep = conn.prepareStatement(selectSQL);) {
+
+            prep.executeUpdate();
+            System.out.print("Updated succesfuly");
+            JOptionPane.showMessageDialog(null, "Updated  succesfully");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLiteChinookCw.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public synchronized void deleteGenre() {
+
+        System.out.println("recieved2: " + selectSQL);
+        try (Connection conn = ConnectionFactory.getConnection(); // auto close the connection object after try
+                PreparedStatement prep = conn.prepareStatement(selectSQL);) {
+            if ("Genre ID".equals(deleteWhat)) {
+                prep.setString(1, Integer.toString(parcelRead.getGenre().getGenreId()));
+            } else if ("Genre Name".equals(deleteWhat)) {
+                prep.setString(1, (parcelRead.getGenre().getName()));;
+            }
             prep.executeUpdate();
             System.out.print("Deleted succesfuly");
             JOptionPane.showMessageDialog(null, "Deleted succesfully");

@@ -44,7 +44,7 @@ public class SQLiteChinookCw {
                 try {
                     Socket socket = serverSocket.accept();
 
-                    ClientHandlerThread clientHandlerThread = new ClientHandlerThread(socket,trackList);
+                    ClientHandlerThread clientHandlerThread = new ClientHandlerThread(socket,genreList);
                     Thread connectionThread = new Thread(clientHandlerThread);
                     connectionThread.start();
                 } catch (IOException ex) {
@@ -65,7 +65,7 @@ public class SQLiteChinookCw {
         SQLiteChinookCw app = new SQLiteChinookCw();
         app.connectToClients();
           //ArrayList<Track> trackList = new ArrayList<>();
-        //app.readAll(trackList);
+        //app.viewTracks(trackList);
 
       
     }
