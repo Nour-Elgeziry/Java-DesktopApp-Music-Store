@@ -83,6 +83,28 @@ public class GUI extends javax.swing.JFrame {
         deleteGenreIdField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -130,24 +152,6 @@ public class GUI extends javax.swing.JFrame {
         jLabel1.setText("Manipulating Tracks");
         jLabel1.setAlignmentX(0.5F);
 
-        trackIDField.setText("Track ID");
-
-        trackNameField.setText("Track Name");
-
-        albumIDField.setText("Album ID");
-
-        mediaTypeIDField.setText("Media Type ID");
-
-        genreIDField.setText("Genre ID");
-
-        composerField.setText("Composer");
-
-        millisecondsField.setText("Milliseconds");
-
-        bytesField.setText("Bytes");
-
-        unitPriceField.setText("Unit Price");
-
         deleteTrackButton.setText("Delete Track");
         deleteTrackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,26 +170,6 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel3.setText("Using Track ID");
 
-        deleteTrackIDField.setText("0");
-
-        editUnitPriceField.setText("Unit Price");
-
-        editTrackNameField.setText("Track Name");
-
-        editAlbumIDField.setText("Album ID");
-
-        editMediaTypeIDField.setText("Media Type ID");
-
-        editGenreIDField.setText("Genre ID");
-
-        editComposerField.setText("Composer");
-
-        editMillisecondsField.setText("Milliseconds");
-
-        editBytesField.setText("Bytes");
-
-        editTrackIDField.setText("Track ID");
-
         addGenreButton.setText("Add Genre");
         addGenreButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,7 +178,6 @@ public class GUI extends javax.swing.JFrame {
         });
 
         editGenreButton.setText("Edit Genre");
-        editGenreButton.setActionCommand("Edit Genre");
         editGenreButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editGenreButtonActionPerformed(evt);
@@ -208,19 +191,53 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        genreTextField.setText("Genre Name");
+        jLabel4.setText("Using Genre Name");
 
-        genreIdField.setText("Genre  ID");
+        jLabel5.setText("Using Genre ID");
 
-        editGenreIdField.setText("Genre ID");
+        jLabel6.setText("Track ID");
 
-        editGenreNameField.setText("Genre Name");
+        jLabel7.setText("Track Name");
 
-        deleteGenreIdField.setText("0");
+        jLabel8.setText("Album ID");
 
-        jLabel4.setText("Using Track Name");
+        jLabel9.setText("Media Type ID");
 
-        jLabel5.setText("Using Track ID");
+        jLabel10.setText("Genre ID");
+
+        jLabel11.setText("Composer");
+
+        jLabel12.setText("Milliseconds");
+
+        jLabel13.setText("Bytes");
+
+        jLabel14.setText("Unit Price");
+
+        jLabel15.setText("Track ID");
+
+        jLabel16.setText("Track Name");
+
+        jLabel17.setText("Album ID");
+
+        jLabel18.setText("Media Type ID");
+
+        jLabel19.setText("Genre ID");
+
+        jLabel20.setText("Composer");
+
+        jLabel21.setText("Milliseconds");
+
+        jLabel22.setText("Bytes");
+
+        jLabel23.setText("Unit Price");
+
+        jLabel24.setText("Genre ID");
+
+        jLabel25.setText("Genre Name");
+
+        jLabel26.setText("Genre ID");
+
+        jLabel27.setText("Genre Name");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -230,80 +247,95 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(unitPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(millisecondsField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bytesField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(genreIDField, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(trackIDField, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(trackNameField, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(albumIDField, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(mediaTypeIDField, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addComponent(composerField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(38, 38, 38)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(editUnitPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(editMillisecondsField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(editBytesField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(editGenreIDField, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(editTrackIDField, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(editTrackNameField, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(editAlbumIDField, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(editMediaTypeIDField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(editComposerField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(addTrackButton2)))
-                            .addComponent(addTrackButton))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addComponent(deleteTrackButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(deleteTrackNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(deleteTrackIDField, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(106, 106, 106)
-                                .addComponent(addGenreButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(114, 114, 114)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(genreIdField)
-                                    .addComponent(genreTextField))))
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(editGenreButton)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(editGenreNameField)
-                                    .addComponent(editGenreIdField))))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addComponent(deleteGenreButton)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
+                                .addGap(69, 69, 69)
+                                .addComponent(addTrackButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(addTrackButton2)
+                                .addGap(124, 124, 124))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel8)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel6))
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel14))
+                                .addGap(34, 34, 34)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(editBytesField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                                    .addComponent(editMillisecondsField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(editComposerField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(editGenreIDField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(editMediaTypeIDField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(editAlbumIDField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(editTrackNameField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(editTrackIDField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(editUnitPriceField))
+                                .addGap(81, 81, 81))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel26)
+                                            .addComponent(jLabel27))
+                                        .addGap(55, 55, 55)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(genreIdField, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                                            .addComponent(genreTextField)))
+                                    .addComponent(addGenreButton))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 270, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(editGenreButton)
+                                        .addGap(182, 182, 182))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel25)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(editGenreNameField))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel24)
+                                                .addGap(28, 28, 28)
+                                                .addComponent(editGenreIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(134, 134, 134)))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(deleteTrackIDField, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(45, 45, 45)
+                                        .addComponent(deleteTrackNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(deleteTrackButton))
+                                .addGap(171, 171, 171))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel2)
+                                .addGap(134, 134, 134))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(deleteGenreButton)
+                                .addGap(143, 143, 143))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(deleteGenreIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(44, 44, 44)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(deleteGenreNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(deleteGenreIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(48, 48, 48))))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(26, 26, 26)
+                                        .addComponent(deleteGenreNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(102, 102, 102))))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -320,9 +352,35 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(297, 297, 297)
                         .addComponent(connectToServerButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(174, 174, 174)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(38, 38, 38))
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel17)
+                                .addComponent(jLabel16)
+                                .addComponent(jLabel15))
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel23))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(composerField, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(genreIDField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(millisecondsField, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(bytesField, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(unitPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(mediaTypeIDField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(albumIDField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(trackNameField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(trackIDField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -341,71 +399,125 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addTrackButton)
                     .addComponent(deleteTrackButton)
                     .addComponent(addTrackButton2)
-                    .addComponent(addGenreButton)
-                    .addComponent(editGenreButton)
-                    .addComponent(deleteGenreButton))
+                    .addComponent(addTrackButton))
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(trackIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(trackNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(albumIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(mediaTypeIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)
-                        .addComponent(genreIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(composerField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(millisecondsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bytesField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(unitPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(editTrackIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(deleteTrackNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel6))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(editTrackNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(deleteTrackIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(genreTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(editGenreNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(deleteGenreIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5))
+                                    .addComponent(jLabel7))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(editAlbumIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(editAlbumIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(editMediaTypeIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(editMediaTypeIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9))
                                 .addGap(9, 9, 9)
-                                .addComponent(editGenreIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(editGenreIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(editComposerField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(editComposerField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(editMillisecondsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel12))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(editBytesField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(editUnitPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel14)))
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2))
+                                .addGap(17, 17, 17)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(deleteTrackIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(deleteTrackNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(statusLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(addGenreButton)
+                                    .addComponent(editGenreButton)
+                                    .addComponent(deleteGenreButton))
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(editGenreIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(genreIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel4)
-                                        .addComponent(deleteGenreNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(editMillisecondsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(editBytesField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(editUnitPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addComponent(statusLabel)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(genreIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel26)
+                                        .addComponent(jLabel24)
+                                        .addComponent(editGenreIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel4))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(trackIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel15))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(trackNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel16))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(albumIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel17))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(mediaTypeIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel18))
+                                .addGap(9, 9, 9)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(genreIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel19))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(composerField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel20))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(millisecondsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel21))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(bytesField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel22))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(unitPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel23))
+                                .addGap(191, 191, 191)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(deleteGenreNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(deleteGenreIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel25)
+                                .addComponent(editGenreNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel27))
+                            .addComponent(genreTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(97, 97, 97)))
                 .addContainerGap())
         );
 
@@ -425,16 +537,23 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_viewGenreButtonActionPerformed
 
     private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
-        try {
-            boolean complete = dataTextArea.print();
-            if (complete) {
-                JOptionPane.showMessageDialog(null, "Done Printinig", "Information", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(null, "Printinig", "Printer", JOptionPane.ERROR_MESSAGE);
-            }
+        if (dataTextArea.getText().isEmpty()) {
+            System.out.println("Text Area is Empty");
+            JOptionPane.showMessageDialog(null, "No text to print , Please view Tracks or Genres to print", "Warning", JOptionPane.ERROR_MESSAGE);
 
-        } catch (PrinterException ex) {
-            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        } else {
+
+            try {
+                boolean complete = dataTextArea.print();
+                if (complete) {
+                    JOptionPane.showMessageDialog(null, "Done Printinig", "Information", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Printinig", "Printer", JOptionPane.ERROR_MESSAGE);
+                }
+
+            } catch (PrinterException ex) {
+                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_printButtonActionPerformed
 
@@ -455,96 +574,149 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_addGenreButtonActionPerformed
 
     private void editGenreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editGenreButtonActionPerformed
-       editGenre();
+        editGenre();
     }//GEN-LAST:event_editGenreButtonActionPerformed
 
     private void deleteGenreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteGenreButtonActionPerformed
         deleteGenre();
     }//GEN-LAST:event_deleteGenreButtonActionPerformed
 
+    boolean isNumber(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException ex) {
+            return false;
+        }
+        return true;
+    }
+
     private void addTrack() {
 
-        if ((objectOutputStream != null && objectInputStream != null)) {
+        if (trackIDField.getText().isEmpty() | trackNameField.getText().isEmpty() | albumIDField.getText().isEmpty() | mediaTypeIDField.getText().isEmpty() | genreIDField.getText().isEmpty() | composerField.getText().isEmpty() | millisecondsField.getText().isEmpty() | bytesField.getText().isEmpty() | unitPriceField.getText().isEmpty()) {
+            System.out.println("Empty fields detected");
+            JOptionPane.showMessageDialog(null, "Please fill all fields", "Detected Empty fields", JOptionPane.ERROR_MESSAGE);
 
-            //1. Send user inputed values through track object
-            int trackID = Integer.parseInt(trackIDField.getText());
-            String trackName = trackNameField.getText();
-            int albumID = Integer.parseInt(albumIDField.getText());
-            int mediaTypeID = Integer.parseInt(mediaTypeIDField.getText());
-            int genreID = Integer.parseInt(genreIDField.getText());
-            String composer = composerField.getText();
-            int milliseconds = Integer.parseInt(millisecondsField.getText());
-            int bytes = Integer.parseInt(bytesField.getText());
-            double unitPrice = Integer.parseInt(unitPriceField.getText());
+        } else if (!isNumber(trackIDField.getText()) | !isNumber(albumIDField.getText()) | !isNumber(mediaTypeIDField.getText()) | !isNumber(genreIDField.getText()) | !isNumber(millisecondsField.getText()) | !isNumber(bytesField.getText()) | !isNumber(unitPriceField.getText())) {
+            System.out.println("Integre fields contain strings");
+            JOptionPane.showMessageDialog(null, "Please fill using Numbers in Appropriate fields (HINT : All Fields Execpt Name and  Composer :))", "Detected Integre fields contain strings", JOptionPane.ERROR_MESSAGE);
+        } else if (isNumber(trackNameField.getText()) | isNumber(composerField.getText())) {
+            System.out.println("Integre fields contain strings");
+            JOptionPane.showMessageDialog(null, "Please fill using Text in Name and Composer Fields", "Detected String fields contain Integers", JOptionPane.ERROR_MESSAGE);
+        } else {
+            // check if any field is empty
+            if ((objectOutputStream != null && objectInputStream != null)) {
 
-            //2. send data to server
-            try {
-                Track track = new Track(trackID, trackName, albumID, mediaTypeID, genreID, composer, milliseconds, bytes, unitPrice);
-                objectOutputStream.writeObject(new Parcel(track, null, true));
-            } catch (IOException ex) {
-                statusLabel.setText("IOException " + ex);
+                //1. Send user inputed values through track object
+                int trackID = Integer.parseInt(trackIDField.getText());
+                String trackName = trackNameField.getText();
+                int albumID = Integer.parseInt(albumIDField.getText());
+                int mediaTypeID = Integer.parseInt(mediaTypeIDField.getText());
+                int genreID = Integer.parseInt(genreIDField.getText());
+                String composer = composerField.getText();
+                int milliseconds = Integer.parseInt(millisecondsField.getText());
+                int bytes = Integer.parseInt(bytesField.getText());
+                double unitPrice = Integer.parseInt(unitPriceField.getText());
+
+                //Make sure all fields are inserted to avoid programe breaking
+                //2. send data to server
+                try {
+                    Track track = new Track(trackID, trackName, albumID, mediaTypeID, genreID, composer, milliseconds, bytes, unitPrice);
+                    objectOutputStream.writeObject(new Parcel(track, null, true));
+                } catch (IOException ex) {
+                    statusLabel.setText("IOException " + ex);
+                }
+
             }
-
         }
     }
 
     private void deleteTrack() {
 
-        int trackID = Integer.parseInt(deleteTrackIDField.getText());
+        // check if both fields are empty
+        if (deleteTrackIDField.getText().isEmpty() && deleteTrackNameField.getText().isEmpty()) {
 
-        if ((objectOutputStream != null && objectInputStream != null)) {
+            System.out.println("Both fields are empty");
+            JOptionPane.showMessageDialog(null, "Please fill one field", "Both Fields are  Empty ", JOptionPane.ERROR_MESSAGE);
+        } else if (!deleteTrackIDField.getText().isEmpty() && !deleteTrackNameField.getText().isEmpty()) {
 
-            //1. send either track Name or ID
-            if (trackID != 0) {
+            System.out.println("Both fields are Filled");
+            JOptionPane.showMessageDialog(null, "Please fill one field only ", "Both Fields are  Filled ", JOptionPane.ERROR_MESSAGE);
+        } else if (!isNumber(deleteTrackIDField.getText()) && !deleteTrackIDField.getText().isEmpty()) {
+            System.out.println("ID Field contains String");
+            JOptionPane.showMessageDialog(null, "Please Enter a Number in ID field ", "ID Field contains String ", JOptionPane.ERROR_MESSAGE);
+        } else if (isNumber(deleteTrackNameField.getText()) && !deleteTrackNameField.getText().isEmpty()) {
+            System.out.println("Name Field contains Integer");
+            JOptionPane.showMessageDialog(null, "Please Enter a Name in Name field ", "Name Field contains Integer ", JOptionPane.ERROR_MESSAGE);
+        } else {
 
-                //2. send data to server
-                try {
-                    Track track = new Track(true, trackID, false);
-                    objectOutputStream.writeObject(new Parcel(track, null, true));
-                } catch (IOException ex) {
-                    statusLabel.setText("IOException " + ex);
-                }
+            if ((objectOutputStream != null && objectInputStream != null)) {
 
-            } else if (deleteTrackNameField.getText() != null || !"".equals(deleteTrackNameField.getText())) {
+                //1. send either track Name or ID
+                if (!deleteTrackIDField.getText().isEmpty()) {
+                    int trackID = Integer.parseInt(deleteTrackIDField.getText());
+                    //2. send data to server
+                    try {
+                        Track track = new Track(true, trackID, false);
+                        objectOutputStream.writeObject(new Parcel(track, null, true));
+                    } catch (IOException ex) {
+                        statusLabel.setText("IOException " + ex);
+                    }
 
-                String trackName = deleteTrackNameField.getText();
+                } else if (!deleteTrackNameField.getText().isEmpty()) {
 
-                try {
-                    Track track = new Track(true, trackName, true);
-                    objectOutputStream.writeObject(new Parcel(track, null, true));
-                } catch (IOException ex) {
-                    statusLabel.setText("IOException " + ex);
+                    String trackName = deleteTrackNameField.getText();
+
+                    try {
+                        Track track = new Track(true, trackName, true);
+                        objectOutputStream.writeObject(new Parcel(track, null, true));
+                    } catch (IOException ex) {
+                        statusLabel.setText("IOException " + ex);
+                    }
+
                 }
 
             }
-
         }
     }
 
     private void editTrack() {
-        if (objectOutputStream != null && objectInputStream != null) {
 
-            int trackID = Integer.parseInt(editTrackIDField.getText());
-            String trackName = editTrackNameField.getText();
-            int albumID = Integer.parseInt(editAlbumIDField.getText());
-            int mediaTypeID = Integer.parseInt(editMediaTypeIDField.getText());
-            int genreID = Integer.parseInt(editGenreIDField.getText());
-            String composer = editComposerField.getText();
-            int milliseconds = Integer.parseInt(editMillisecondsField.getText());
-            int bytes = Integer.parseInt(editBytesField.getText());
-            double unitPrice = Integer.parseInt(editUnitPriceField.getText());
+        if (editTrackIDField.getText().isEmpty() | editTrackNameField.getText().isEmpty() | editAlbumIDField.getText().isEmpty() | editMediaTypeIDField.getText().isEmpty() | editGenreIDField.getText().isEmpty() | editComposerField.getText().isEmpty() | editMillisecondsField.getText().isEmpty() | editBytesField.getText().isEmpty() | editUnitPriceField.getText().isEmpty()) {
+            System.out.println("Empty fields detected");
+            JOptionPane.showMessageDialog(null, "Please fill all fields", "Detected Empty fields", JOptionPane.ERROR_MESSAGE);
 
-            //2. send data to server
-            try {
+        } else if (!isNumber(editTrackIDField.getText()) | !isNumber(editAlbumIDField.getText()) | !isNumber(editMediaTypeIDField.getText()) | !isNumber(editGenreIDField.getText()) | !isNumber(editMillisecondsField.getText()) | !isNumber(editBytesField.getText()) | !isNumber(editUnitPriceField.getText())) {
+            System.out.println("Integre fields contain strings");
+            JOptionPane.showMessageDialog(null, "Please fill using Numbers in Appropriate fields (HINT : All Fields Execpt Name and  Composer :))", "Detected Integre fields contain strings", JOptionPane.ERROR_MESSAGE);
+        } else if (isNumber(editTrackNameField.getText()) | isNumber(editComposerField.getText())) {
+            System.out.println("Name Field contains Integer");
+            JOptionPane.showMessageDialog(null, "Please Enter a Text in Name and Composer fields ", "Name or Composer Fields contains Integers ", JOptionPane.ERROR_MESSAGE);
+        } else {
 
-                Track track = new Track(trackID, trackName, albumID, mediaTypeID, genreID, composer, milliseconds, bytes, unitPrice, true);
-                Parcel parcel = new Parcel(track, null, true);
-                parcel.getTrack().setisDelete(false);
-                objectOutputStream.writeObject(new Parcel(track, null, true));
-            } catch (IOException ex) {
-                statusLabel.setText("IOException " + ex);
+            if (objectOutputStream != null && objectInputStream != null) {
+
+                int trackID = Integer.parseInt(editTrackIDField.getText());
+                String trackName = editTrackNameField.getText();
+                int albumID = Integer.parseInt(editAlbumIDField.getText());
+                int mediaTypeID = Integer.parseInt(editMediaTypeIDField.getText());
+                int genreID = Integer.parseInt(editGenreIDField.getText());
+                String composer = editComposerField.getText();
+                int milliseconds = Integer.parseInt(editMillisecondsField.getText());
+                int bytes = Integer.parseInt(editBytesField.getText());
+                double unitPrice = Integer.parseInt(editUnitPriceField.getText());
+
+                //2. send data to server
+                try {
+
+                    Track track = new Track(trackID, trackName, albumID, mediaTypeID, genreID, composer, milliseconds, bytes, unitPrice, true);
+                    Parcel parcel = new Parcel(track, null, true);
+                    parcel.getTrack().setisDelete(false);
+                    objectOutputStream.writeObject(new Parcel(track, null, true));
+                } catch (IOException ex) {
+                    statusLabel.setText("IOException " + ex);
+                }
+
             }
-
         }
     }
 
@@ -626,68 +798,26 @@ public class GUI extends javax.swing.JFrame {
 
     private void addGenre() {
 
-        if ((objectOutputStream != null && objectInputStream != null)) {
+        if (genreIdField.getText().isEmpty() | genreTextField.getText().isEmpty()) {
+            System.out.println("Empty fields detected");
+            JOptionPane.showMessageDialog(null, "Please fill all fields", "Detected Empty fields", JOptionPane.ERROR_MESSAGE);
+        } else if (!isNumber(genreIdField.getText())) {
+            System.out.println("Integre fields contain strings");
+            JOptionPane.showMessageDialog(null, "Please fill using Numbers in Genre ID Field", "Detected Integre fields contain strings", JOptionPane.ERROR_MESSAGE);
+        } else if (isNumber(genreTextField.getText())) {
+            System.out.println("String fields contain Integers");
+            JOptionPane.showMessageDialog(null, "Please fill using Text in Genre Name Field", "Detected String fields contain siNTEGERS", JOptionPane.ERROR_MESSAGE);
+        } else {
 
-            //1. Send user inputed values through track object
-            int genreID = Integer.parseInt(genreIdField.getText());
-            String genreName = genreTextField.getText();
+            if ((objectOutputStream != null && objectInputStream != null)) {
 
-            //2. send data to server
-            try {
-                Genre genre = new Genre (genreID,genreName);
-                objectOutputStream.writeObject(new Parcel(null, genre, false));
-            } catch (IOException ex) {
-                statusLabel.setText("IOException " + ex);
-            }
-
-        }
-
-    }
-    
-    
-    private void editGenre(){
-    
-       if ((objectOutputStream != null && objectInputStream != null)) {
-
-            //1. Send user inputed values through track object
-            int genreID = Integer.parseInt(editGenreIdField.getText());
-            String genreName = editGenreNameField.getText();
-
-            //2. send data to server
-            try {
-                Genre genre = new Genre (genreID,genreName,true);
-                objectOutputStream.writeObject(new Parcel(null, genre, false));
-            } catch (IOException ex) {
-                statusLabel.setText("IOException " + ex);
-            }
-
-        }
-    
-    }
-    
-      private void deleteGenre() {
-
-        int genreId = Integer.parseInt(deleteGenreIdField.getText());
-
-        if ((objectOutputStream != null && objectInputStream != null)) {
-
-            //1. send either track Name or ID
-            if (genreId != 0) {
+                //1. Send user inputed values through track object
+                int genreID = Integer.parseInt(genreIdField.getText());
+                String genreName = genreTextField.getText();
 
                 //2. send data to server
                 try {
-                    Genre genre = new Genre(true, genreId, false);
-                    objectOutputStream.writeObject(new Parcel(null, genre, false));
-                } catch (IOException ex) {
-                    statusLabel.setText("IOException " + ex);
-                }
-
-            } else if (deleteGenreNameField.getText() != null || !"".equals(deleteGenreNameField.getText())) {
-
-                String genreName = deleteGenreNameField.getText();
-
-                try {
-                    Genre genre = new Genre(true, genreName, true);
+                    Genre genre = new Genre(genreID, genreName);
                     objectOutputStream.writeObject(new Parcel(null, genre, false));
                 } catch (IOException ex) {
                     statusLabel.setText("IOException " + ex);
@@ -695,6 +825,87 @@ public class GUI extends javax.swing.JFrame {
 
             }
 
+        }
+    }
+
+    private void editGenre() {
+
+        if (editGenreIdField.getText().isEmpty() | editGenreNameField.getText().isEmpty()) {
+            System.out.println("Empty fields detected");
+            JOptionPane.showMessageDialog(null, "Please fill all fields", "Detected Empty fields", JOptionPane.ERROR_MESSAGE);
+        } else if (!isNumber(editGenreIdField.getText())) {
+            System.out.println("Integre fields contain strings");
+            JOptionPane.showMessageDialog(null, "Please fill using Numbers in Genre ID Field", "Detected Integre fields contain strings", JOptionPane.ERROR_MESSAGE);
+        } else if (isNumber(editGenreNameField.getText())) {
+            System.out.println("String fields contain Integers");
+            JOptionPane.showMessageDialog(null, "Please fill using Text in Genre Name Field", "Detected String fields contain siNTEGERS", JOptionPane.ERROR_MESSAGE);
+        } else {
+
+            if ((objectOutputStream != null && objectInputStream != null)) {
+
+                //1. Send user inputed values through track object
+                int genreID = Integer.parseInt(editGenreIdField.getText());
+                String genreName = editGenreNameField.getText();
+
+                //2. send data to server
+                try {
+                    Genre genre = new Genre(genreID, genreName, true);
+                    objectOutputStream.writeObject(new Parcel(null, genre, false));
+                } catch (IOException ex) {
+                    statusLabel.setText("IOException " + ex);
+                }
+
+            }
+
+        }
+    }
+
+    private void deleteGenre() {
+
+        // check if both fields are empty
+        if (deleteGenreIdField.getText().isEmpty() && deleteGenreNameField.getText().isEmpty()) {
+
+            System.out.println("Both fields are empty");
+            JOptionPane.showMessageDialog(null, "Please fill one field", "Both Fields are  Empty ", JOptionPane.ERROR_MESSAGE);
+        } else if (!deleteGenreIdField.getText().isEmpty() && !deleteGenreNameField.getText().isEmpty()) {
+
+            System.out.println("Both fields are Filled");
+            JOptionPane.showMessageDialog(null, "Please fill one field only ", "Both Fields are  Filled ", JOptionPane.ERROR_MESSAGE);
+        } else if (!isNumber(deleteGenreIdField.getText()) && !deleteGenreIdField.getText().isEmpty() ) {
+            System.out.println("Integre fields contain strings");
+            JOptionPane.showMessageDialog(null, "Please fill using Numbers in Genre ID Field", "Detected Integre fields contain strings", JOptionPane.ERROR_MESSAGE);
+        } else if (isNumber(deleteGenreNameField.getText()) && !deleteGenreNameField.getText().isEmpty() ) {
+            System.out.println("Name Field contains Integer");
+            JOptionPane.showMessageDialog(null, "Please Enter a Name in Name field ", "Name Field contains Integer ", JOptionPane.ERROR_MESSAGE);
+        } else {
+
+            if ((objectOutputStream != null && objectInputStream != null)) {
+
+                //1. send either track Name or ID
+                if (!deleteGenreIdField.getText().isEmpty()) {
+                    int genreId = Integer.parseInt(deleteGenreIdField.getText());
+                    //2. send data to server
+                    try {
+                        Genre genre = new Genre(true, genreId, false);
+                        objectOutputStream.writeObject(new Parcel(null, genre, false));
+                    } catch (IOException ex) {
+                        statusLabel.setText("IOException " + ex);
+                    }
+
+                } else if (!deleteGenreNameField.getText().isEmpty()) {
+
+                    String genreName = deleteGenreNameField.getText();
+
+                    try {
+                        Genre genre = new Genre(true, genreName, true);
+                        objectOutputStream.writeObject(new Parcel(null, genre, false));
+                    } catch (IOException ex) {
+                        statusLabel.setText("IOException " + ex);
+                    }
+
+                }
+
+            }
         }
     }
 
@@ -813,10 +1024,32 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField genreIdField;
     private javax.swing.JTextField genreTextField;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField mediaTypeIDField;
     private javax.swing.JTextField millisecondsField;

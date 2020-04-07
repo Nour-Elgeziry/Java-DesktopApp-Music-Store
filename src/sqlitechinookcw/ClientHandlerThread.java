@@ -5,20 +5,18 @@
  */
 package sqlitechinookcw;
 
-import sqlitechinookcw.Genre;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
+
 import java.net.Socket;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -121,18 +119,20 @@ public class ClientHandlerThread implements Runnable {
                         }
                     } else if (parcelRead.getGenre().getIsEdit() == true) {
                         editGenre();
-                    } else if(parcelRead.getGenre().getIsDelete() == true){
-                        
-                        if(parcelRead.getGenre().getIsDeleteName() == true){
+                    } else if (parcelRead.getGenre().getIsDelete() == true) {
+
+                        if (parcelRead.getGenre().getIsDeleteName() == true) {
                             deleteWhat = "Genre Name";
                             selectSQL = "DELETE FROM genres Where Name =?";
                             deleteGenre();
-                        }else if (parcelRead.getGenre().getIsDeleteName() == false){
+                        } else if (parcelRead.getGenre().getIsDeleteName() == false) {
                             deleteWhat = "Genre ID";
                             selectSQL = "DELETE FROM genres Where GenreId =?";
                             deleteGenre();
                         }
-                    }else{addGenre();}
+                    } else {
+                        addGenre();
+                    }
 
                 }
 
@@ -309,7 +309,7 @@ public class ClientHandlerThread implements Runnable {
             Logger.getLogger(SQLiteChinookCw.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public synchronized void deleteGenre() {
 
         System.out.println("recieved2: " + selectSQL);
