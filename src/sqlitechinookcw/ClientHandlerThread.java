@@ -246,8 +246,14 @@ public class ClientHandlerThread implements Runnable {
                 prep.setString(1, (parcelRead.getTrack().getName()));;
             }
             prep.executeUpdate();
-            System.out.print("Deleted succesfuly");
-            JOptionPane.showMessageDialog(null, "Deleted succesfully");
+            int result = prep.executeUpdate();
+            if (result == 0) {
+                System.out.print("Track Not Available");
+                JOptionPane.showMessageDialog(null, "Track Not Available","Track Not Available",JOptionPane.ERROR_MESSAGE);
+            } else {
+                System.out.print("Deleted succesfuly");
+                JOptionPane.showMessageDialog(null, "Deleted succesfully");
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(SQLiteChinookCw.class.getName()).log(Level.SEVERE, null, ex);
@@ -260,10 +266,14 @@ public class ClientHandlerThread implements Runnable {
         try (Connection conn = ConnectionFactory.getConnection(); // auto close the connection object after try
                 PreparedStatement prep = conn.prepareStatement(selectSQL);) {
 
-            prep.executeUpdate();
-            System.out.print("Updated succesfuly");
-            JOptionPane.showMessageDialog(null, "Updated  succesfully");
-
+            int result = prep.executeUpdate();
+            if (result == 0) {
+                System.out.print("Track Not Available");
+                JOptionPane.showMessageDialog(null, "Track Not Available","Track Not Available",JOptionPane.ERROR_MESSAGE);
+            } else {
+                System.out.print("Updated succesfuly");
+                JOptionPane.showMessageDialog(null, "Updated  succesfully");
+            }
         } catch (SQLException ex) {
             Logger.getLogger(SQLiteChinookCw.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -320,9 +330,16 @@ public class ClientHandlerThread implements Runnable {
         try (Connection conn = ConnectionFactory.getConnection(); // auto close the connection object after try
                 PreparedStatement prep = conn.prepareStatement(selectSQL);) {
 
-            prep.executeUpdate();
-            System.out.print("Updated succesfuly");
-            JOptionPane.showMessageDialog(null, "Updated  succesfully");
+            int result = prep.executeUpdate();
+            System.out.println("update return" + result);
+
+            if (result == 0) {
+                JOptionPane.showMessageDialog(null, "Genre not available", "Genre unavilable", JOptionPane.ERROR_MESSAGE);
+            } else {
+                System.out.print("Updated succesfuly");
+                JOptionPane.showMessageDialog(null, "Updated  succesfully");
+
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(SQLiteChinookCw.class.getName()).log(Level.SEVERE, null, ex);
@@ -339,10 +356,14 @@ public class ClientHandlerThread implements Runnable {
             } else if ("Genre Name".equals(deleteWhat)) {
                 prep.setString(1, (parcelRead.getGenre().getName()));;
             }
-            prep.executeUpdate();
-            System.out.print("Deleted succesfuly");
-            JOptionPane.showMessageDialog(null, "Deleted succesfully");
+            int result = prep.executeUpdate();
 
+            if (result == 0) {
+                JOptionPane.showMessageDialog(null, "Genre not available", "Genre unavilable", JOptionPane.ERROR_MESSAGE);
+            } else {
+                System.out.print("Deleted succesfuly");
+                JOptionPane.showMessageDialog(null, "Deleted succesfully");
+            }
         } catch (SQLException ex) {
             Logger.getLogger(SQLiteChinookCw.class.getName()).log(Level.SEVERE, null, ex);
         }
