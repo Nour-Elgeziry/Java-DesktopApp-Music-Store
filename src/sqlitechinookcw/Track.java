@@ -31,6 +31,8 @@ public class Track implements Serializable {
     private boolean isDeleteName;// USED TO CHECK DELETE USING NAME OR ID
     private boolean isDelete;// used to check if deleting
     private boolean isViewTracks;// USED O CHECK IF VIEWING TRACK IS CALLEDprivate boolean isViewTracks;// USED O CHECK IF VIEWING TRACK IS CALLED
+     private boolean isSearch;
+     private String genreSearchName;
     
     // used when adding/viewing track/?Deleting(by adding is edit)
     public Track(int trackId, String name, int albumId, int mediaTypeId, int genreId, String composer, int milliseconds, int bytes, double unitPrice) {
@@ -80,6 +82,11 @@ public class Track implements Serializable {
         this.trackId = trackId;
         this.isDeleteName = isDeleteName;
     }
+    
+     public Track (String genreName, boolean isSearch){
+     this.genreSearchName = genreName;
+     this.isSearch = isSearch;
+     }
 
     public int getTrackId() {
         return trackId;
@@ -183,6 +190,22 @@ public class Track implements Serializable {
 
     public void setisViewTracks(boolean isViewTracks) {
         this.isViewTracks = isViewTracks;
+    }
+    
+     public String getGenreSearchName() {
+        return genreSearchName;
+    }
+
+    public void setGenreSearchName(String genreName) {
+        this.genreSearchName = genreName;
+    }
+    
+     public boolean getIsSearch(){
+        return isSearch;
+    }
+    
+    public void setIsSearch(boolean isSearch){
+    this.isSearch = isSearch;
     }
 
     @Override

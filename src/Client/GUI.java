@@ -105,6 +105,10 @@ public class GUI extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
+        searchTrackByGenreField = new javax.swing.JTextField();
+        searchTrackByGenreButton = new javax.swing.JButton();
+        trackByGenreTextArea = new javax.swing.JScrollPane();
+        searchTrackByGenreTextArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -239,103 +243,123 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel27.setText("Genre Name");
 
+        searchTrackByGenreButton.setText("Search Track by Genre");
+        searchTrackByGenreButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTrackByGenreButtonActionPerformed(evt);
+            }
+        });
+
+        searchTrackByGenreTextArea.setColumns(20);
+        searchTrackByGenreTextArea.setRows(5);
+        trackByGenreTextArea.setViewportView(searchTrackByGenreTextArea);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(76, 76, 76)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(69, 69, 69)
-                                .addComponent(addTrackButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(addTrackButton2)
-                                .addGap(124, 124, 124))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel8)
-                                        .addComponent(jLabel7)
-                                        .addComponent(jLabel6))
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel14))
-                                .addGap(34, 34, 34)
+                                    .addComponent(jLabel26)
+                                    .addComponent(jLabel27))
+                                .addGap(55, 55, 55)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(genreIdField, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                                    .addComponent(genreTextField)))
+                            .addComponent(addGenreButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(editGenreButton)
+                                .addGap(182, 182, 182))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(editBytesField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                                    .addComponent(editMillisecondsField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(editComposerField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(editGenreIDField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(editMediaTypeIDField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(editAlbumIDField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(editTrackNameField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(editTrackIDField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(editUnitPriceField))
-                                .addGap(81, 81, 81))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel25)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(editGenreNameField))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel24)
+                                        .addGap(28, 28, 28)
+                                        .addComponent(editGenreIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(134, 134, 134))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(addTrackButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addTrackButton2)
+                        .addGap(124, 124, 124))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 3, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(57, 57, 57)
+                                .addGap(336, 336, 336)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel26)
-                                            .addComponent(jLabel27))
-                                        .addGap(55, 55, 55)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(genreIdField, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
-                                            .addComponent(genreTextField)))
-                                    .addComponent(addGenreButton))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 270, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(editGenreButton)
-                                        .addGap(182, 182, 182))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel8)
+                                                .addComponent(jLabel7)
+                                                .addComponent(jLabel6))
+                                            .addComponent(jLabel10)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jLabel12)
+                                            .addComponent(jLabel13)
+                                            .addComponent(jLabel14))
+                                        .addGap(34, 34, 34)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel25)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(editGenreNameField))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel24)
-                                                .addGap(28, 28, 28)
-                                                .addComponent(editGenreIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(134, 134, 134)))))
+                                            .addComponent(editBytesField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                                            .addComponent(editMillisecondsField, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(editComposerField, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(editGenreIDField, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(editMediaTypeIDField, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(editAlbumIDField, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(editTrackNameField, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(editTrackIDField, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(editUnitPriceField)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(searchTrackByGenreButton)
+                                        .addGap(48, 48, 48)
+                                        .addComponent(searchTrackByGenreField, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(404, 404, 404)
+                                .addComponent(trackByGenreTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(15, 15, 15)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(deleteTrackIDField, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(45, 45, 45)
+                                .addComponent(deleteTrackNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(deleteTrackButton))
+                        .addGap(171, 171, 171))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addGap(134, 134, 134))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(deleteGenreButton)
+                        .addGap(143, 143, 143))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(deleteGenreIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(deleteTrackIDField, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(45, 45, 45)
-                                        .addComponent(deleteTrackNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(deleteTrackButton))
-                                .addGap(171, 171, 171))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel2)
-                                .addGap(134, 134, 134))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(deleteGenreButton)
-                                .addGap(143, 143, 143))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(deleteGenreIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(44, 44, 44)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(26, 26, 26)
-                                        .addComponent(deleteGenreNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(102, 102, 102))))))
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(deleteGenreNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(102, 102, 102))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -390,18 +414,23 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(viewTracksButton)
-                    .addComponent(viewGenreButton))
+                    .addComponent(viewGenreButton)
+                    .addComponent(searchTrackByGenreButton)
+                    .addComponent(searchTrackByGenreField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(trackByGenreTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(printButton)
                 .addGap(5, 5, 5)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deleteTrackButton)
-                    .addComponent(addTrackButton2)
-                    .addComponent(addTrackButton))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addTrackButton2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(deleteTrackButton)
+                        .addComponent(addTrackButton)))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -580,6 +609,11 @@ public class GUI extends javax.swing.JFrame {
     private void deleteGenreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteGenreButtonActionPerformed
         deleteGenre();
     }//GEN-LAST:event_deleteGenreButtonActionPerformed
+
+    private void searchTrackByGenreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTrackByGenreButtonActionPerformed
+
+        searchTrackByGenre();
+    }//GEN-LAST:event_searchTrackByGenreButtonActionPerformed
 
     boolean isNumber(String input) {
         try {
@@ -786,11 +820,9 @@ public class GUI extends javax.swing.JFrame {
             //4. display message to user
             if (reply != null) {
                 System.out.println(" i am herer in client");
-
                 dataTextArea.setText(reply.toString());
             } else {
                 statusLabel.setText("You must connect to the server first!!");
-
             }
         }
 
@@ -871,10 +903,10 @@ public class GUI extends javax.swing.JFrame {
 
             System.out.println("Both fields are Filled");
             JOptionPane.showMessageDialog(null, "Please fill one field only ", "Both Fields are  Filled ", JOptionPane.ERROR_MESSAGE);
-        } else if (!isNumber(deleteGenreIdField.getText()) && !deleteGenreIdField.getText().isEmpty() ) {
+        } else if (!isNumber(deleteGenreIdField.getText()) && !deleteGenreIdField.getText().isEmpty()) {
             System.out.println("Integre fields contain strings");
             JOptionPane.showMessageDialog(null, "Please fill using Numbers in Genre ID Field", "Detected Integre fields contain strings", JOptionPane.ERROR_MESSAGE);
-        } else if (isNumber(deleteGenreNameField.getText()) && !deleteGenreNameField.getText().isEmpty() ) {
+        } else if (isNumber(deleteGenreNameField.getText()) && !deleteGenreNameField.getText().isEmpty()) {
             System.out.println("Name Field contains Integer");
             JOptionPane.showMessageDialog(null, "Please Enter a Name in Name field ", "Name Field contains Integer ", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -906,6 +938,57 @@ public class GUI extends javax.swing.JFrame {
                 }
 
             }
+        }
+    }
+
+    private void searchTrackByGenre() {
+
+        if (searchTrackByGenreField.getText().isEmpty()) {
+            System.out.println("Empty Filed");
+            JOptionPane.showMessageDialog(null, "Please Fill The Search Field", "Field is Empty ", JOptionPane.ERROR_MESSAGE);
+        } else if (isNumber(searchTrackByGenreField.getText())) {
+            System.out.println(" Filed is a number");
+            JOptionPane.showMessageDialog(null, "Please Fill The Search Field with text ", "Field is Number ", JOptionPane.ERROR_MESSAGE);
+        } else {
+            // process data
+
+            if ((objectOutputStream != null && objectInputStream != null)) {
+
+                String trackName = searchTrackByGenreField.getText().substring(0, 1).toUpperCase() + searchTrackByGenreField.getText().substring(1);
+
+                try {
+                    Track track = new Track(trackName, true);
+                    objectOutputStream.writeObject(new Parcel(track, null, true));
+                    objectOutputStream.reset();
+
+                } catch (IOException ex) {
+                    statusLabel.setText("IOException " + ex);
+                }
+
+                //3. get reply from server
+                System.out.println("in client getting reply");
+               
+                statusLabel.setText(" waiting for reply from server");
+                try {
+                    reply = objectInputStream.readObject();
+                    statusLabel.setText("recieved reply from server");
+                } catch (IOException ex) {
+                    statusLabel.setText("IOException " + ex);
+                } catch (ClassNotFoundException ex) {
+                    statusLabel.setText("ClassNotFoundException " + ex);
+                }
+
+                //4. display message to user
+                if (reply != null) {
+                    System.out.println(" i am herer in client");
+                    System.out.println("the reply object" + reply);
+                    searchTrackByGenreTextArea.setText(reply.toString());
+                } else {
+                    statusLabel.setText("You must connect to the server first!!");
+                }
+
+            }
+
         }
     }
 
@@ -992,7 +1075,7 @@ public class GUI extends javax.swing.JFrame {
 
     private ObjectOutputStream objectOutputStream;
     private ObjectInputStream objectInputStream;
-
+    Object reply = null;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addGenreButton;
@@ -1054,7 +1137,11 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField mediaTypeIDField;
     private javax.swing.JTextField millisecondsField;
     private javax.swing.JButton printButton;
+    private javax.swing.JButton searchTrackByGenreButton;
+    private javax.swing.JTextField searchTrackByGenreField;
+    private javax.swing.JTextArea searchTrackByGenreTextArea;
     private javax.swing.JLabel statusLabel;
+    private javax.swing.JScrollPane trackByGenreTextArea;
     private javax.swing.JTextField trackIDField;
     private javax.swing.JTextField trackNameField;
     private javax.swing.JTextField unitPriceField;

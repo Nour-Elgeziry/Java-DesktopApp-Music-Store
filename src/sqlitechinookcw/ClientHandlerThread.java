@@ -5,6 +5,7 @@
  */
 package sqlitechinookcw;
 
+import static com.sun.javafx.application.PlatformImpl.exit;
 import java.io.IOException;
 
 import java.io.ObjectInputStream;
@@ -19,7 +20,9 @@ import java.util.ArrayList;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javafx.application.Platform.exit;
 import javax.swing.JOptionPane;
+import static jdk.nashorn.internal.objects.Global.exit;
 
 /**
  *
@@ -32,6 +35,7 @@ public class ClientHandlerThread implements Runnable {
     String selectSQL = "";
     String meesageToDelte = "";
     Parcel parcelRead;
+    int genreId;
 
     private final Socket socket;
     ArrayList<Track> trackList = new ArrayList<>();
@@ -53,10 +57,8 @@ public class ClientHandlerThread implements Runnable {
      * @throws IOException if an I/O error occurs when creating the input and
      * output streams, or if the socket is closed, or socket is not connected.
      */
-    public ClientHandlerThread(Socket socket, ArrayList arrayList) throws IOException {
+    public ClientHandlerThread(Socket socket) throws IOException {
         this.socket = socket;
-        this.trackList = arrayList;
-        this.genreList = arrayList;
 
         objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
         objectInputStream = new ObjectInputStream(socket.getInputStream());
@@ -88,6 +90,19 @@ public class ClientHandlerThread implements Runnable {
                             System.out.println("");
 
                         }
+                    } else if (parcelRead.getTrack().getIsSearch() == true) {
+                        getTracksByGenre(trackList);
+                        System.out.println("main:");
+                        for (Track t : trackList) {
+                            System.out.print(t);
+                            System.out.print(" | ");
+                            System.out.println("");
+
+                        }
+                        objectOutputStream.writeObject(trackList);
+                        objectOutputStream.reset();
+                        trackList.clear();
+
                     } else if (parcelRead.getTrack().getisDelete() == true) {
 
                         if (parcelRead.getTrack().getisDeleteName() == true) {
@@ -102,8 +117,10 @@ public class ClientHandlerThread implements Runnable {
 
                     } else if (parcelRead.getTrack().getIsEdit() == true) {
                         editTrack();
-                    } else {
+                    } else if (parcelRead.getTrack().getisViewTracks() == true) {
                         addTrack();
+                    } else {
+                        break;
                     }
 
                 } else if (parcelRead.getIsTrack() == false) {
@@ -111,12 +128,12 @@ public class ClientHandlerThread implements Runnable {
                         viewGenres(genreList);
                         objectOutputStream.writeObject(genreList);
                         System.out.println("main:");
-                        for (Genre g : genreList) {
-                            System.out.print(g);
-                            System.out.print(" | ");
-                            System.out.println("");
+                        /*for (Genre g : genreList) {
+                         System.out.print(g);
+                         System.out.print(" | ");
+                         System.out.println("");
 
-                        }
+                         }*/
                     } else if (parcelRead.getGenre().getIsEdit() == true) {
                         editGenre();
                     } else if (parcelRead.getGenre().getIsDelete() == true) {
@@ -130,8 +147,10 @@ public class ClientHandlerThread implements Runnable {
                             selectSQL = "DELETE FROM genres Where GenreId =?";
                             deleteGenre();
                         }
-                    } else {
+                    } else if (parcelRead.getGenre().getIsViewGenre() == true) {
                         addGenre();
+                    } else {
+                        break;
                     }
 
                 }
@@ -155,7 +174,7 @@ public class ClientHandlerThread implements Runnable {
         System.out.println("ClientHandlerThread" + connectionNumber + ": " + say);
     }
 
-    public synchronized void viewTracks(ArrayList populateList) { // selectSQL = "INSERT INTO tracks(TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice) VALUES(?,?,?,?,?,?,?,?,?)";
+    public synchronized void viewTracks(ArrayList populateList) {
 
         this.trackList = populateList;
 
@@ -327,6 +346,54 @@ public class ClientHandlerThread implements Runnable {
         } catch (SQLException ex) {
             Logger.getLogger(SQLiteChinookCw.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public synchronized void getTracksByGenre(ArrayList populateList) {
+
+        //this.trackList = populateList;
+        selectSQL = "SELECT GenreId FROM genres WHERE Name=?";
+
+        try (Connection conn = ConnectionFactory.getConnection(); // auto close the connection object after try
+                PreparedStatement prep = conn.prepareStatement(selectSQL);) {
+            prep.setString(1, parcelRead.getTrack().getGenreSearchName());
+            ResultSet resultSet = prep.executeQuery();
+            if (resultSet.next()) {
+                genreId = resultSet.getInt(1);
+                System.out.println("Git the id baby :" + genreId);
+            } else {
+                JOptionPane.showMessageDialog(null, "Genre un available", "Genre unavilable", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLiteChinookCw.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        selectSQL = "SELECT * FROM tracks WHERE GenreId=?";
+        try (Connection conn = ConnectionFactory.getConnection(); // auto close the connection object after try
+                PreparedStatement prep = conn.prepareStatement(selectSQL);) {
+            System.out.println("Git the id2 baby :" + genreId);
+            prep.setString(1, Integer.toString(genreId));
+            ResultSet resultSet = prep.executeQuery();
+
+            // now rows
+            while (resultSet.next()) {
+                Track track = new Track(
+                        resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getInt(3),
+                        resultSet.getInt(4),
+                        resultSet.getInt(5),
+                        resultSet.getString(6),
+                        resultSet.getInt(7),
+                        resultSet.getInt(8),
+                        resultSet.getDouble(9));
+                populateList.add(track);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLiteChinookCw.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
 }

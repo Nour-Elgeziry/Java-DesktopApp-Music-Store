@@ -20,6 +20,7 @@ public class Genre implements Serializable {
     private boolean isEdit;
     private boolean isDelete;
     private boolean isDeleteName;
+   
 
     public Genre(int genreId, String name) {
         this.genreId = genreId;
@@ -32,8 +33,8 @@ public class Genre implements Serializable {
         this.isEdit = isEdit;
     }
 
-    public Genre(boolean viewGenre) {
-        this.isViewGenre = viewGenre;
+    public Genre(boolean isViewGenre) {
+        this.isViewGenre = isViewGenre;
     }
     
      // used to delete track using track name
@@ -48,6 +49,8 @@ public class Genre implements Serializable {
         this.genreId = genreId;
         this.isDeleteName = isDeleteName;
     }
+     
+    
 
     public int getGenreId() {
         return genreId;
@@ -96,6 +99,8 @@ public class Genre implements Serializable {
     public void setIsDeleteName(boolean isDeleteName){
     this.isDeleteName = isDeleteName;
     }
+    
+    
 
     @Override
     public String toString() {

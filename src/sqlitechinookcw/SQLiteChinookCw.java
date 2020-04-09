@@ -44,7 +44,7 @@ public class SQLiteChinookCw {
                 try {
                     Socket socket = serverSocket.accept();
 
-                    ClientHandlerThread clientHandlerThread = new ClientHandlerThread(socket,genreList);
+                    ClientHandlerThread clientHandlerThread = new ClientHandlerThread(socket);
                     Thread connectionThread = new Thread(clientHandlerThread);
                     connectionThread.start();
                 } catch (IOException ex) {
