@@ -5,7 +5,7 @@
  */
 package sqlitechinookcw;
 
-import static com.sun.javafx.application.PlatformImpl.exit;
+import java.awt.Cursor;
 import java.io.IOException;
 
 import java.io.ObjectInputStream;
@@ -80,9 +80,14 @@ public class ClientHandlerThread implements Runnable {
 
                 if (parcelRead.getIsTrack() == true) {
 
-                    if (parcelRead.getTrack().getisViewTracks() == true) {
+                    if (parcelRead.getTrack().getIsSetUpperBound() == true) {
+
+                        setUpperBound();
+                    } else if (parcelRead.getTrack().getisViewTracks() == true) {
                         viewTracks(trackList);
+                       
                         objectOutputStream.writeObject(trackList);
+                        objectOutputStream.reset();
                         System.out.println("main:");
                         for (Track t : trackList) {
                             System.out.print(t);
@@ -90,6 +95,7 @@ public class ClientHandlerThread implements Runnable {
                             System.out.println("");
 
                         }
+                        trackList.clear();
                     } else if (parcelRead.getTrack().getIsSearch() == true) {
                         getTracksByGenre(trackList);
                         System.out.println("main:");
@@ -101,6 +107,7 @@ public class ClientHandlerThread implements Runnable {
                         }
                         objectOutputStream.writeObject(trackList);
                         objectOutputStream.reset();
+                         
                         trackList.clear();
 
                     } else if (parcelRead.getTrack().getisDelete() == true) {
@@ -117,16 +124,33 @@ public class ClientHandlerThread implements Runnable {
 
                     } else if (parcelRead.getTrack().getIsEdit() == true) {
                         editTrack();
-                    } else if (parcelRead.getTrack().getisViewTracks() == true) {
-                        addTrack();
+                    } else if (parcelRead.getTrack().getIsRandom() == true) {
+                        randomTrackGenerator(trackList);
+                        
+                        System.out.println("main:");
+                        for (Track t : trackList) {
+                            System.out.print(t);
+                            System.out.print(" | ");
+                            System.out.println("");
+
+                        }
+                        objectOutputStream.writeObject(trackList);
+                        objectOutputStream.reset();
+                        
+                        trackList.clear();
+
                     } else {
-                        break;
+                        addTrack();
+                        
                     }
 
                 } else if (parcelRead.getIsTrack() == false) {
                     if (parcelRead.getGenre().getIsViewGenre() == true) {
                         viewGenres(genreList);
+                        
                         objectOutputStream.writeObject(genreList);
+                        objectOutputStream.reset();
+                       
                         System.out.println("main:");
                         /*for (Genre g : genreList) {
                          System.out.print(g);
@@ -147,12 +171,13 @@ public class ClientHandlerThread implements Runnable {
                             selectSQL = "DELETE FROM genres Where GenreId =?";
                             deleteGenre();
                         }
-                    } else if (parcelRead.getGenre().getIsViewGenre() == true) {
-                        addGenre();
                     } else {
-                        break;
+                        addGenre();
+                        
                     }
 
+                } else {
+                    System.out.println("errrrr");
                 }
 
             }
@@ -245,14 +270,16 @@ public class ClientHandlerThread implements Runnable {
             } else if ("Track Name".equals(deleteWhat)) {
                 prep.setString(1, (parcelRead.getTrack().getName()));;
             }
-            prep.executeUpdate();
             int result = prep.executeUpdate();
+
             if (result == 0) {
                 System.out.print("Track Not Available");
-                JOptionPane.showMessageDialog(null, "Track Not Available","Track Not Available",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Track Not Available", "Track Not Available", JOptionPane.ERROR_MESSAGE);
+
             } else {
                 System.out.print("Deleted succesfuly");
                 JOptionPane.showMessageDialog(null, "Deleted succesfully");
+
             }
 
         } catch (SQLException ex) {
@@ -269,7 +296,7 @@ public class ClientHandlerThread implements Runnable {
             int result = prep.executeUpdate();
             if (result == 0) {
                 System.out.print("Track Not Available");
-                JOptionPane.showMessageDialog(null, "Track Not Available","Track Not Available",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Track Not Available", "Track Not Available", JOptionPane.ERROR_MESSAGE);
             } else {
                 System.out.print("Updated succesfuly");
                 JOptionPane.showMessageDialog(null, "Updated  succesfully");
@@ -415,6 +442,67 @@ public class ClientHandlerThread implements Runnable {
             Logger.getLogger(SQLiteChinookCw.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    public synchronized void randomTrackGenerator(ArrayList populateList) {
+
+        this.trackList = populateList;
+
+        selectSQL = "SELECT * FROM tracks WHERE TrackId=?";
+
+        try (Connection conn = ConnectionFactory.getConnection(); // auto close the connection object after try
+                PreparedStatement prep = conn.prepareStatement(selectSQL);) {
+            System.out.println("Random number = " + parcelRead.getTrack().getRandomNumber());
+            prep.setString(1, Integer.toString(parcelRead.getTrack().getRandomNumber()));
+
+            ResultSet resultSet = prep.executeQuery();
+
+            // now rows
+            while (resultSet.next()) {
+                Track track = new Track(
+                        resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getInt(3),
+                        resultSet.getInt(4),
+                        resultSet.getInt(5),
+                        resultSet.getString(6),
+                        resultSet.getInt(7),
+                        resultSet.getInt(8),
+                        resultSet.getDouble(9));
+                populateList.add(track);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLiteChinookCw.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public synchronized void setUpperBound() {
+
+        selectSQL = "SELECT TrackId FROM tracks ORDER BY TrackId DESC LIMIT 1 ";
+
+        try (Connection conn = ConnectionFactory.getConnection(); // auto close the connection object after try
+                PreparedStatement prep = conn.prepareStatement(selectSQL);) {
+
+            ResultSet resultSet = prep.executeQuery();
+
+            if (resultSet.next()) {
+                int upperBound = resultSet.getInt(1);
+                System.out.println("Git the id baby :" + upperBound);
+                try {
+                    objectOutputStream.writeObject(new Track(upperBound, true));
+                } catch (IOException ex) {
+                    Logger.getLogger(ClientHandlerThread.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "UpperBound issue", "issue in setupperbound function", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLiteChinookCw.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

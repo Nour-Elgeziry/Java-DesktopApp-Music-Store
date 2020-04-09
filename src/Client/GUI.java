@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import sqlitechinookcw.Genre;
 import sqlitechinookcw.Parcel;
+import java.util.Random;
 
 /**
  *
@@ -109,6 +110,9 @@ public class GUI extends javax.swing.JFrame {
         searchTrackByGenreButton = new javax.swing.JButton();
         trackByGenreTextArea = new javax.swing.JScrollPane();
         searchTrackByGenreTextArea = new javax.swing.JTextArea();
+        getRandomTrackButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        randomTrackField = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -254,6 +258,17 @@ public class GUI extends javax.swing.JFrame {
         searchTrackByGenreTextArea.setRows(5);
         trackByGenreTextArea.setViewportView(searchTrackByGenreTextArea);
 
+        getRandomTrackButton.setText("Get Random Track");
+        getRandomTrackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getRandomTrackButtonActionPerformed(evt);
+            }
+        });
+
+        randomTrackField.setColumns(20);
+        randomTrackField.setRows(5);
+        jScrollPane2.setViewportView(randomTrackField);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -299,39 +314,33 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(336, 336, 336)
+                                .addGap(466, 466, 466)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel8)
-                                                .addComponent(jLabel7)
-                                                .addComponent(jLabel6))
-                                            .addComponent(jLabel10)
-                                            .addComponent(jLabel11)
-                                            .addComponent(jLabel12)
-                                            .addComponent(jLabel13)
-                                            .addComponent(jLabel14))
-                                        .addGap(34, 34, 34)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(editBytesField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                                            .addComponent(editMillisecondsField, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(editComposerField, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(editGenreIDField, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(editMediaTypeIDField, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(editAlbumIDField, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(editTrackNameField, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(editTrackIDField, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(editUnitPriceField)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(searchTrackByGenreButton)
-                                        .addGap(48, 48, 48)
-                                        .addComponent(searchTrackByGenreField, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel8)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel6))
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel14))
+                                .addGap(34, 34, 34)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(editBytesField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                                    .addComponent(editMillisecondsField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(editComposerField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(editGenreIDField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(editMediaTypeIDField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(editAlbumIDField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(editTrackNameField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(editTrackIDField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(editUnitPriceField)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(404, 404, 404)
+                                .addGap(178, 178, 178)
                                 .addComponent(trackByGenreTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(15, 15, 15)))
+                        .addGap(37, 37, 37)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -362,10 +371,6 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(102, 102, 102))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(viewTracksButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(viewGenreButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(71, 71, 71)
                         .addComponent(printButton))
@@ -403,8 +408,22 @@ public class GUI extends javax.swing.JFrame {
                                     .addComponent(mediaTypeIDField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(albumIDField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(trackNameField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(trackIDField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(trackIDField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(viewTracksButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(viewGenreButton)
+                        .addGap(140, 140, 140)
+                        .addComponent(searchTrackByGenreButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(searchTrackByGenreField, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(89, 89, 89)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(74, 74, 74)
+                                .addComponent(getRandomTrackButton)))))
+                .addContainerGap(273, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -416,11 +435,13 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(viewTracksButton)
                     .addComponent(viewGenreButton)
                     .addComponent(searchTrackByGenreButton)
-                    .addComponent(searchTrackByGenreField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(searchTrackByGenreField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(getRandomTrackButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(trackByGenreTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(trackByGenreTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(printButton)
                 .addGap(5, 5, 5)
@@ -575,9 +596,9 @@ public class GUI extends javax.swing.JFrame {
             try {
                 boolean complete = dataTextArea.print();
                 if (complete) {
-                    JOptionPane.showMessageDialog(null, "Done Printinig", "Information", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Data Sent to printer", "Information", JOptionPane.INFORMATION_MESSAGE);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Printinig", "Printer", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Printinig Cancelled", "Printer", JOptionPane.ERROR_MESSAGE);
                 }
 
             } catch (PrinterException ex) {
@@ -615,6 +636,10 @@ public class GUI extends javax.swing.JFrame {
         searchTrackByGenre();
     }//GEN-LAST:event_searchTrackByGenreButtonActionPerformed
 
+    private void getRandomTrackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getRandomTrackButtonActionPerformed
+        getRandomTrack();
+    }//GEN-LAST:event_getRandomTrackButtonActionPerformed
+
     boolean isNumber(String input) {
         try {
             Integer.parseInt(input);
@@ -623,6 +648,55 @@ public class GUI extends javax.swing.JFrame {
         }
         return true;
     }
+    
+    int setUpperBound(){
+       
+     if ((objectOutputStream != null && objectInputStream != null)) {
+     
+     try {
+                    Track track = new Track(0,true);
+                    objectOutputStream.writeObject(new Parcel(track, null, true));
+                } catch (IOException ex) {
+                    statusLabel.setText("IOException " + ex);
+                }
+
+     
+      //3. get reply from server
+            System.out.println("in client getting reply");
+            Track reply = null;
+            statusLabel.setText(" waiting for reply from server");
+            try {
+                reply = (Track)objectInputStream.readObject();
+                statusLabel.setText("recieved reply from server");
+            } catch (IOException ex) {
+                statusLabel.setText("IOException " + ex);
+            } catch (ClassNotFoundException ex) {
+                statusLabel.setText("ClassNotFoundException " + ex);
+            }
+
+            //4. display message to user
+            if (reply != null) {
+                if(reply.getIsSetUpperBound() == true){
+                upperBound = reply.getUpperBound();
+                System.out.println("Upper bound is" + upperBound);
+                }
+                System.out.println(" i am herer in client");
+
+                dataTextArea.setText(reply.toString());
+            } else {
+                statusLabel.setText("You must connect to the server first!!");
+
+            }
+                
+            } else {
+                statusLabel.setText("You must connect to the server first!!");
+            }
+        return upperBound;
+     
+     }
+     
+    
+    
 
     private void addTrack() {
 
@@ -660,7 +734,8 @@ public class GUI extends javax.swing.JFrame {
                     statusLabel.setText("IOException " + ex);
                 }
 
-            }
+                
+            } 
         }
     }
 
@@ -708,6 +783,8 @@ public class GUI extends javax.swing.JFrame {
                     }
 
                 }
+
+                
 
             }
         }
@@ -763,6 +840,7 @@ public class GUI extends javax.swing.JFrame {
             ///2. send data to server
             try {
                 objectOutputStream.writeObject(new Parcel(track, null, true));
+                objectOutputStream.reset();
             } catch (IOException ex) {
                 statusLabel.setText("IOException " + ex);
             }
@@ -788,6 +866,11 @@ public class GUI extends javax.swing.JFrame {
             } else {
                 statusLabel.setText("You must connect to the server first!!");
 
+            }
+            try {
+                objectInputStream.reset();
+            } catch (IOException ex) {
+                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -823,6 +906,11 @@ public class GUI extends javax.swing.JFrame {
                 dataTextArea.setText(reply.toString());
             } else {
                 statusLabel.setText("You must connect to the server first!!");
+            }
+            try {
+                objectInputStream.reset();
+            } catch (IOException ex) {
+                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
@@ -967,7 +1055,7 @@ public class GUI extends javax.swing.JFrame {
 
                 //3. get reply from server
                 System.out.println("in client getting reply");
-               
+
                 statusLabel.setText(" waiting for reply from server");
                 try {
                     reply = objectInputStream.readObject();
@@ -986,10 +1074,57 @@ public class GUI extends javax.swing.JFrame {
                 } else {
                     statusLabel.setText("You must connect to the server first!!");
                 }
+                try {
+                objectInputStream.reset();
+            } catch (IOException ex) {
+                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
             }
 
         }
+    }
+
+    private void getRandomTrack() {
+        int setUpperBound = setUpperBound();
+        Random rand = new Random(); //instance of random class
+        System.out.println("uperbound value = :" + setUpperBound);
+        int int_random = rand.nextInt(setUpperBound);
+        System.out.println("random number = " + int_random);
+        if ((objectOutputStream != null && objectInputStream != null)) {
+            try {
+                Track track = new Track(true, int_random);
+                objectOutputStream.writeObject(new Parcel(track, null, true));
+                objectOutputStream.reset();
+
+            } catch (IOException ex) {
+                statusLabel.setText("IOException " + ex);
+            }
+
+            //3. get reply from server
+            System.out.println("in client getting reply");
+
+            statusLabel.setText(" waiting for reply from server");
+            try {
+                reply = objectInputStream.readObject();
+                statusLabel.setText("recieved reply from server");
+            } catch (IOException ex) {
+                statusLabel.setText("IOException " + ex);
+            } catch (ClassNotFoundException ex) {
+                statusLabel.setText("ClassNotFoundException " + ex);
+            }
+
+            //4. display message to user
+            if (reply != null) {
+                System.out.println(" i am herer in client");
+                System.out.println("the reply object" + reply);
+                randomTrackField.setText(reply.toString());
+            } else {
+                statusLabel.setText("You must connect to the server first!!");
+            }
+
+        }
+
     }
 
     private void reconnectToServer() {
@@ -1072,7 +1207,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     private Socket socket;
-
+    int upperBound;
     private ObjectOutputStream objectOutputStream;
     private ObjectInputStream objectInputStream;
     Object reply = null;
@@ -1106,6 +1241,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField genreIDField;
     private javax.swing.JTextField genreIdField;
     private javax.swing.JTextField genreTextField;
+    private javax.swing.JButton getRandomTrackButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1134,9 +1270,11 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField mediaTypeIDField;
     private javax.swing.JTextField millisecondsField;
     private javax.swing.JButton printButton;
+    private javax.swing.JTextArea randomTrackField;
     private javax.swing.JButton searchTrackByGenreButton;
     private javax.swing.JTextField searchTrackByGenreField;
     private javax.swing.JTextArea searchTrackByGenreTextArea;

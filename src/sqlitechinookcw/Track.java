@@ -32,7 +32,11 @@ public class Track implements Serializable {
     private boolean isDelete;// used to check if deleting
     private boolean isViewTracks;// USED O CHECK IF VIEWING TRACK IS CALLEDprivate boolean isViewTracks;// USED O CHECK IF VIEWING TRACK IS CALLED
      private boolean isSearch;
+     private boolean isRandom;
      private String genreSearchName;
+     private int randomNumber;
+     private int upperBound;
+     private boolean isSetUpperBound;
     
     // used when adding/viewing track/?Deleting(by adding is edit)
     public Track(int trackId, String name, int albumId, int mediaTypeId, int genreId, String composer, int milliseconds, int bytes, double unitPrice) {
@@ -86,6 +90,16 @@ public class Track implements Serializable {
      public Track (String genreName, boolean isSearch){
      this.genreSearchName = genreName;
      this.isSearch = isSearch;
+     }
+     
+     public Track(boolean isRandom, int randomNumber){
+     this.isRandom = isRandom;
+     this.randomNumber = randomNumber;
+     }
+      
+     public Track (int upperBound,boolean isSetUpperBound){
+     this.isSetUpperBound = isSetUpperBound;
+     this.upperBound = upperBound;
      }
 
     public int getTrackId() {
@@ -207,6 +221,40 @@ public class Track implements Serializable {
     public void setIsSearch(boolean isSearch){
     this.isSearch = isSearch;
     }
+    
+    public boolean getIsRandom(){
+        return isRandom;
+    }
+    
+    public void setIsRandom(boolean isRandom){
+    this.isRandom = isRandom;
+    }
+    
+    public int getRandomNumber(){
+        return randomNumber;
+    }
+    
+    public void setRandomNumber(int randomNumber){
+    this.randomNumber = randomNumber;
+    }
+    
+       public boolean getIsSetUpperBound(){
+        return isSetUpperBound;
+    }
+    
+    public void setIsSetUpperBound(boolean isSetUpperBound){
+    this.isSetUpperBound = isSetUpperBound;
+    }
+    
+     public int getUpperBound(){
+        return upperBound;
+    }
+    
+    public void setUpperBound(int upperBound){
+    this.upperBound = upperBound;
+    }
+    
+    
 
     @Override
     public String toString() {
