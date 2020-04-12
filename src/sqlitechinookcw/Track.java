@@ -71,7 +71,7 @@ public class Track implements Serializable {
 
     }
 
-    // used to view tracks
+    // used to set view tracks
     public Track(boolean viewTracks) {
         this.isViewTracks = viewTracks;
     }
@@ -89,17 +89,23 @@ public class Track implements Serializable {
         this.trackId = trackId;
         this.isDeleteName = isDeleteName;
     }
+
     // used to seacrc track by genre
+
     public Track(String genreName, boolean isSearch) {
         this.genreSearchName = genreName;
         this.isSearch = isSearch;
     }
+
     // used to get random track
+
     public Track(boolean isRandom, int randomNumber) {
         this.isRandom = isRandom;
         this.randomNumber = randomNumber;
     }
+
     // used to set upper bound
+
     public Track(int upperBound, boolean isSetUpperBound) {
         this.isSetUpperBound = isSetUpperBound;
         this.upperBound = upperBound;
@@ -110,153 +116,81 @@ public class Track implements Serializable {
         return trackId;
     }
 
-    public void setTrackId(int trackId) {
-        this.trackId = trackId;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getAlbumId() {
         return albumId;
     }
 
-    public void setAlbumId(int albumId) {
-        this.albumId = albumId;
-    }
-
     public int getMediaTypeId() {
         return mediaTypeId;
-    }
-
-    public void setMediaTypeId(int mediaTypeId) {
-        this.mediaTypeId = mediaTypeId;
     }
 
     public int getGenreId() {
         return genreId;
     }
 
-    public void setGenreId(int genreId) {
-        this.genreId = genreId;
-    }
-
     public String getComposer() {
         return composer;
-    }
-
-    public void setComposer(String composer) {
-        this.composer = composer;
     }
 
     public int getMilliseconds() {
         return milliseconds;
     }
 
-    public void setMilliseconds(int milliseconds) {
-        this.milliseconds = milliseconds;
-    }
-
     public int getBytes() {
         return bytes;
-    }
-
-    public void setBytes(int bytes) {
-        this.bytes = bytes;
     }
 
     public double getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(double unitPrice) {
-        this.unitPrice = unitPrice;
-    }
-
     public boolean getIsEdit() {
         return isEdit;
-    }
-
-    public void setIsEdit(boolean isEdit) {
-        this.isEdit = isEdit;
     }
 
     public Boolean getisDeleteName() {
         return isDeleteName;
     }
 
-    public void setisDeleteName(Boolean isDeleteName) {
-        this.isDeleteName = isDeleteName;
-    }
-
     public Boolean getisDelete() {
         return isDelete;
-    }
-
-    public void setisDelete(Boolean isDelete) {
-        this.isDelete = isDelete;
     }
 
     public boolean getisViewTracks() {
         return isViewTracks;
     }
 
-    public void setisViewTracks(boolean isViewTracks) {
-        this.isViewTracks = isViewTracks;
-    }
-
     public String getGenreSearchName() {
         return genreSearchName;
-    }
-
-    public void setGenreSearchName(String genreName) {
-        this.genreSearchName = genreName;
     }
 
     public boolean getIsSearch() {
         return isSearch;
     }
 
-    public void setIsSearch(boolean isSearch) {
-        this.isSearch = isSearch;
-    }
-
     public boolean getIsRandom() {
         return isRandom;
-    }
-
-    public void setIsRandom(boolean isRandom) {
-        this.isRandom = isRandom;
     }
 
     public int getRandomNumber() {
         return randomNumber;
     }
 
-    public void setRandomNumber(int randomNumber) {
-        this.randomNumber = randomNumber;
-    }
-
     public boolean getIsSetUpperBound() {
         return isSetUpperBound;
-    }
-
-    public void setIsSetUpperBound(boolean isSetUpperBound) {
-        this.isSetUpperBound = isSetUpperBound;
     }
 
     public int getUpperBound() {
         return upperBound;
     }
-
-    public void setUpperBound(int upperBound) {
-        this.upperBound = upperBound;
+    public void setIsDelete(boolean isDelete){
+    this.isDelete = isDelete;
     }
+
 // overriding tostring function to display to user
     @Override
     public String toString() {

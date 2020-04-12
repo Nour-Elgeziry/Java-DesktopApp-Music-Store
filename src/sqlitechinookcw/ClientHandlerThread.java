@@ -38,11 +38,11 @@ public class ClientHandlerThread implements Runnable {
 
     private final Socket socket; // declaring new instance of the socket
 
-    ArrayList<Track> trackList = new ArrayList<>(); // arraylists used to popoulate when calling view tracks/genres function and send them through objectoutputstream to client
-    ArrayList<Genre> genreList = new ArrayList<>();
+    private ArrayList<Track> trackList = new ArrayList<>(); // arraylists used to popoulate when calling view tracks/genres function and send them through objectoutputstream to client
+    private ArrayList<Genre> genreList = new ArrayList<>();
 
-    ObjectOutputStream objectOutputStream;
-    ObjectInputStream objectInputStream;
+    private ObjectOutputStream objectOutputStream;
+    private ObjectInputStream objectInputStream;
 
     private static int connectionCount = 0;
     private final int connectionNumber;

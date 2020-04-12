@@ -846,7 +846,7 @@ public class GUI extends javax.swing.JFrame {
 
                     Track track = new Track(trackID, trackName, albumID, mediaTypeID, genreID, composer, milliseconds, bytes, unitPrice, true);
                     Parcel parcel = new Parcel(track, null, true);
-                    parcel.getTrack().setisDelete(false);       // setting is delete to false to make sure the server picks this finctionality and not delete track.
+                    parcel.getTrack().setIsDelete(false);       // setting is delete to false to make sure the server picks this finctionality and not delete track.
                     objectOutputStream.writeObject(new Parcel(track, null, true));
                 } catch (IOException ex) {
                     statusLabel.setText("IOException " + ex);
