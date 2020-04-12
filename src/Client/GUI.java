@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *Written by Nourelrahman Elgeziry  SID: 7593776
+ * .
  */
 package Client;
 
@@ -19,6 +18,9 @@ import sqlitechinookcw.Parcel;
 import java.util.Random;
 
 /**
+ * This class is responsible for representing the user interface and event
+ * listeners handled when the user interacts with application. Each function is
+ * responsible to handle a separate event and sends objects to the server.
  *
  * @author nour
  */
@@ -587,6 +589,12 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_viewGenreButtonActionPerformed
 
     private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
+        /*
+         this function is called when user presses the print button
+         It checks if the textArea to print is empty first, if not, the text is prited by sending the data to a virtual printer.
+         After the process , it displays  a message to the user to state if the process has completed succesfuuly or not.
+         */
+
         if (dataTextArea.getText().isEmpty()) {
             System.out.println("Text Area is Empty");
             JOptionPane.showMessageDialog(null, "No text to print , Please view Tracks or Genres to print", "Warning", JOptionPane.ERROR_MESSAGE);
@@ -639,6 +647,10 @@ public class GUI extends javax.swing.JFrame {
     private void getRandomTrackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getRandomTrackButtonActionPerformed
         getRandomTrack();
     }//GEN-LAST:event_getRandomTrackButtonActionPerformed
+    /*
+     isNumber function was programed in order to detect if numbers are wriiten in textfields where integers are expected.This happens by passing the values to the Integer.parseInt function.
+     If no errors are caught it returns true, else false is returned
+     */
 
     boolean isNumber(String input) {
         try {
@@ -648,25 +660,29 @@ public class GUI extends javax.swing.JFrame {
         }
         return true;
     }
-    
-    int setUpperBound(){
-       
-     if ((objectOutputStream != null && objectInputStream != null)) {
-     
-     try {
-                    Track track = new Track(0,true);
-                    objectOutputStream.writeObject(new Parcel(track, null, true));
-                } catch (IOException ex) {
-                    statusLabel.setText("IOException " + ex);
-                }
 
-     
-      //3. get reply from server
+    /*
+     setUpperBound function is called when the getRandomTrack function is trigered. It is used to detect the highest number the random number generator can produce.
+     The return value of this function willbe themhighes number to be produced and theen can be used by the other functions to get random number. 
+     @return this upperBound value
+     */
+    int setUpperBound() {
+
+        if ((objectOutputStream != null && objectInputStream != null)) {    // checks if output and input stream objects are not null
+
+            try {
+                Track track = new Track(0, true);       // Setting a track object with the appropriate values, then sending a parcel object containnig the track object through composition. 
+                objectOutputStream.writeObject(new Parcel(track, null, true));
+            } catch (IOException ex) {
+                statusLabel.setText("IOException " + ex);
+            }
+
+            //3. get reply from server                          getting the reply from the server that holds the upperBound value.
             System.out.println("in client getting reply");
             Track reply = null;
             statusLabel.setText(" waiting for reply from server");
             try {
-                reply = (Track)objectInputStream.readObject();
+                reply = (Track) objectInputStream.readObject();    // recieving the reply as a track object.
                 statusLabel.setText("recieved reply from server");
             } catch (IOException ex) {
                 statusLabel.setText("IOException " + ex);
@@ -674,29 +690,26 @@ public class GUI extends javax.swing.JFrame {
                 statusLabel.setText("ClassNotFoundException " + ex);
             }
 
-            //4. display message to user
+            //4. assign reply to upperBound
             if (reply != null) {
-                if(reply.getIsSetUpperBound() == true){
-                upperBound = reply.getUpperBound();
-                System.out.println("Upper bound is" + upperBound);
+                if (reply.getIsSetUpperBound() == true) {
+                    upperBound = reply.getUpperBound();
+                    System.out.println("Upper bound is" + upperBound);
                 }
-                System.out.println(" i am herer in client");
-
-                dataTextArea.setText(reply.toString());
-            } else {
-                statusLabel.setText("You must connect to the server first!!");
 
             }
-                
-            } else {
-                statusLabel.setText("You must connect to the server first!!");
-            }
-        return upperBound;
-     
-     }
-     
+
+        } else {
+            statusLabel.setText("You must connect to the server first!!");
+        }
+        return upperBound;  // returning the upper bound
+
+    }
+    /*
+     addTrack function is used to add track to the tracks table in the data base. First various checks are held to make sure that all fields are filled, 
+     no integers in text fields and vice-versa.Then an object is sent to the server, 
     
-    
+     */
 
     private void addTrack() {
 
@@ -715,7 +728,7 @@ public class GUI extends javax.swing.JFrame {
             if ((objectOutputStream != null && objectInputStream != null)) {
 
                 //1. Send user inputed values through track object
-                int trackID = Integer.parseInt(trackIDField.getText());
+                int trackID = Integer.parseInt(trackIDField.getText());         // parsing the text to integers in the appropriate fields
                 String trackName = trackNameField.getText();
                 int albumID = Integer.parseInt(albumIDField.getText());
                 int mediaTypeID = Integer.parseInt(mediaTypeIDField.getText());
@@ -728,19 +741,27 @@ public class GUI extends javax.swing.JFrame {
                 //Make sure all fields are inserted to avoid programe breaking
                 //2. send data to server
                 try {
-                    Track track = new Track(trackID, trackName, albumID, mediaTypeID, genreID, composer, milliseconds, bytes, unitPrice);
-                    objectOutputStream.writeObject(new Parcel(track, null, true));
+                    Track track = new Track(trackID, trackName, albumID, mediaTypeID, genreID, composer, milliseconds, bytes, unitPrice); // setting the track object to send 
+                    objectOutputStream.writeObject(new Parcel(track, null, true));  // sending a parcel object wiith track object.
                 } catch (IOException ex) {
                     statusLabel.setText("IOException " + ex);
                 }
 
-                
-            } 
+            } else {
+                statusLabel.setText("You must connect to the server first!!"); // if the input and output streams are not empty, display following message
+            }
         }
     }
 
     private void deleteTrack() {
 
+        /*
+         Delete track is used to delete a track either by track id or track name from the tracks table. 
+         Checks include both fields are not empty, both fields are not filled and only one field is fiiled in naddition to text fields hace numbers and vice versa.
+         If the track id field is not empty, then the track objects uses he appropriate constructor to send the id number to the user.Else if track name is not empty, the
+         track name is send to the server
+        
+         */
         // check if both fields are empty
         if (deleteTrackIDField.getText().isEmpty() && deleteTrackNameField.getText().isEmpty()) {
 
@@ -761,34 +782,38 @@ public class GUI extends javax.swing.JFrame {
             if ((objectOutputStream != null && objectInputStream != null)) {
 
                 //1. send either track Name or ID
-                if (!deleteTrackIDField.getText().isEmpty()) {
+                if (!deleteTrackIDField.getText().isEmpty()) {  // checking if track id is not empty
                     int trackID = Integer.parseInt(deleteTrackIDField.getText());
                     //2. send data to server
                     try {
                         Track track = new Track(true, trackID, false);
-                        objectOutputStream.writeObject(new Parcel(track, null, true));
+                        objectOutputStream.writeObject(new Parcel(track, null, true)); // sending a parcel object whith track object contaniig track id
                     } catch (IOException ex) {
                         statusLabel.setText("IOException " + ex);
                     }
 
-                } else if (!deleteTrackNameField.getText().isEmpty()) {
+                } else if (!deleteTrackNameField.getText().isEmpty()) { // checking if track name is not empty
 
                     String trackName = deleteTrackNameField.getText();
 
                     try {
                         Track track = new Track(true, trackName, true);
-                        objectOutputStream.writeObject(new Parcel(track, null, true));
+                        objectOutputStream.writeObject(new Parcel(track, null, true)); // sending a parcel object whith track object contaniig track name
                     } catch (IOException ex) {
                         statusLabel.setText("IOException " + ex);
                     }
 
                 }
 
-                
-
+            } else {
+                statusLabel.setText("You must connect to the server first!!");
             }
         }
     }
+    /*
+     editTrack function is used to edit tracks from the tracks table. All values must be filled first with corrct information. Then integer values are parsed. 
+     An instance of the track object is sent through the parcel object to the server.
+     */
 
     private void editTrack() {
 
@@ -821,15 +846,23 @@ public class GUI extends javax.swing.JFrame {
 
                     Track track = new Track(trackID, trackName, albumID, mediaTypeID, genreID, composer, milliseconds, bytes, unitPrice, true);
                     Parcel parcel = new Parcel(track, null, true);
-                    parcel.getTrack().setisDelete(false);
+                    parcel.getTrack().setisDelete(false);       // setting is delete to false to make sure the server picks this finctionality and not delete track.
                     objectOutputStream.writeObject(new Parcel(track, null, true));
                 } catch (IOException ex) {
                     statusLabel.setText("IOException " + ex);
                 }
 
+            } else {
+                statusLabel.setText("You must connect to the server first!!");
             }
         }
     }
+    /*
+    
+     the function sends a track object to the server which requests all information inside the tracks table.
+     When getting back the object, its is shown on the textArea to the user.
+    
+     */
 
     private void viewTracks() {
         if (objectOutputStream != null && objectInputStream != null) {
@@ -862,18 +895,27 @@ public class GUI extends javax.swing.JFrame {
             if (reply != null) {
                 System.out.println(" i am herer in client");
 
-                dataTextArea.setText(reply.toString());
-            } else {
-                statusLabel.setText("You must connect to the server first!!");
-
+                dataTextArea.setText(reply.toString());     // displaying the reply object to the user in the dataTextArea
             }
             try {
-                objectInputStream.reset();
+                objectInputStream.reset(); // resetting the stream to make sure no refrences are cached
             } catch (IOException ex) {
                 Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
             }
+        } else {
+            statusLabel.setText("You must connect to the server first!!");
+
         }
     }
+    /*
+    
+    
+     the function sends a genre object to the server which requests all information inside the genres table.
+     When getting back the object, its is shown on the textArea to the user.
+    
+    
+    
+     */
 
     private void viewGenre() {
 
@@ -904,17 +946,21 @@ public class GUI extends javax.swing.JFrame {
             if (reply != null) {
                 System.out.println(" i am herer in client");
                 dataTextArea.setText(reply.toString());
-            } else {
-                statusLabel.setText("You must connect to the server first!!");
             }
             try {
                 objectInputStream.reset();
             } catch (IOException ex) {
                 Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
             }
+        } else {
+            statusLabel.setText("You must connect to the server first!!");
         }
 
     }
+    /*Add genre function is used to add a genre to the genes table
+     Checks if input fields are empty and if text field contain integers and vice versa.
+     A genre object is sent to the server containing the requoired information
+     */
 
     private void addGenre() {
 
@@ -943,10 +989,14 @@ public class GUI extends javax.swing.JFrame {
                     statusLabel.setText("IOException " + ex);
                 }
 
+            } else {
+                statusLabel.setText("You must connect to the server first!!");
             }
 
         }
     }
+    /*editGenre function is used to edit genres in the genres table.
+     After checks are performed, object is sent to the server where further operations are performed.*/
 
     private void editGenre() {
 
@@ -975,10 +1025,19 @@ public class GUI extends javax.swing.JFrame {
                     statusLabel.setText("IOException " + ex);
                 }
 
+            } else {
+                statusLabel.setText("You must connect to the server first!!");
             }
 
         }
     }
+    /*
+     Delete genre is used to delete a genre either by genre id or genre name from the genres table. 
+     Checks include both fields are not empty, both fields are not filled and only one field is fiiled in naddition to text fields hace numbers and vice versa.
+     If the genre id field is not empty, then the genre objects uses he appropriate constructor to send the id number to the user.Else if genre name is not empty, the
+     genre name is send to the server
+        
+     */
 
     private void deleteGenre() {
 
@@ -1025,9 +1084,14 @@ public class GUI extends javax.swing.JFrame {
 
                 }
 
+            } else {
+                statusLabel.setText("You must connect to the server first!!");
             }
         }
     }
+    /*searchTrackByGenre is used to allow user to get track by genre of chouce, in this function , checks first that the input field is not empty.
+     Then the iser input is captured and the first letter is converted to upper camel case letter to be able to match the database syntax.
+     After, that, track object is sent to the server where further operations are held. The reply object containng the tracks is then displayed for the user in the text area.*/
 
     private void searchTrackByGenre() {
 
@@ -1042,12 +1106,12 @@ public class GUI extends javax.swing.JFrame {
 
             if ((objectOutputStream != null && objectInputStream != null)) {
 
-                String trackName = searchTrackByGenreField.getText().substring(0, 1).toUpperCase() + searchTrackByGenreField.getText().substring(1);
+                String trackName = searchTrackByGenreField.getText().substring(0, 1).toUpperCase() + searchTrackByGenreField.getText().substring(1); //upper camel case conversion
 
                 try {
                     Track track = new Track(trackName, true);
                     objectOutputStream.writeObject(new Parcel(track, null, true));
-                    objectOutputStream.reset();
+                    objectOutputStream.reset(); // resetting output stream tprevent caching refrences.
 
                 } catch (IOException ex) {
                     statusLabel.setText("IOException " + ex);
@@ -1071,19 +1135,25 @@ public class GUI extends javax.swing.JFrame {
                     System.out.println(" i am herer in client");
                     System.out.println("the reply object" + reply);
                     searchTrackByGenreTextArea.setText(reply.toString());
-                } else {
-                    statusLabel.setText("You must connect to the server first!!");
                 }
                 try {
-                objectInputStream.reset();
-            } catch (IOException ex) {
-                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                    objectInputStream.reset();
+                } catch (IOException ex) {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
+            } else {
+                statusLabel.setText("You must connect to the server first!!");
             }
 
         }
     }
+    /*
+     get RandomTrack is used to display a random track to the user.
+     It makes use of the setupperBound functio where the return value is used in the random number genrator function as the upperBound input.
+     after getting the number, a track object is sent to the server.
+     Whne getting a reply, it is displayed for the user in the text area.
+     */
 
     private void getRandomTrack() {
         int setUpperBound = setUpperBound();
@@ -1119,16 +1189,18 @@ public class GUI extends javax.swing.JFrame {
                 System.out.println(" i am herer in client");
                 System.out.println("the reply object" + reply);
                 randomTrackField.setText(reply.toString());
-            } else {
-                statusLabel.setText("You must connect to the server first!!");
             }
 
+        } else {
+            statusLabel.setText("You must connect to the server first!!");
         }
 
     }
+    /*this function is used to connect to the server through the appropriate ip address and port number.
+     */
 
     private void reconnectToServer() {
-        closeConnection();
+        closeConnection(); // makes sure socket is clear
         statusLabel.setText("Status: Attempting connection to server");
         try {
             socket = new Socket("127.0.0.1", 2000);
@@ -1141,6 +1213,7 @@ public class GUI extends javax.swing.JFrame {
             statusLabel.setText(ex.toString()); // connection failed
         }
     }
+    /* makes sure socket is clear before establishing connection*/
 
     private void closeConnection() {
         if (socket != null) {
@@ -1155,22 +1228,6 @@ public class GUI extends javax.swing.JFrame {
         }
     }
 
-    /* public void keepReadingFromServer() {
-     while (true) {
-     try {
-     Track reply = (Track) objectInputStream.readObject();
-     statusLabel.setText(" waiting for reply from server");
-     if (reply != null) {
-     dataTextArea.setText(reply.getName());
-     } else {
-     statusLabel.setText("You must connect to the server first!!");
-
-     }
-     } catch (IOException | ClassNotFoundException ex) {
-     Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-     }
-     }
-     }*/
     /**
      * @param args the command line arguments
      */
@@ -1210,7 +1267,7 @@ public class GUI extends javax.swing.JFrame {
     int upperBound;
     private ObjectOutputStream objectOutputStream;
     private ObjectInputStream objectInputStream;
-    Object reply = null;
+    Object reply;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addGenreButton;

@@ -1,42 +1,29 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *Written by Nourelrahman Elgeziry  SID: 7593776
  */
 package sqlitechinookcw;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * This class is our main class for the server-side program. At the moment it
- * demonstrates how to make a connection to the SQLite database and then just
- * outputs the data to the console. But ideally this class should start a
- * (perhaps threaded) server via server sockets (to-do) and then either access
- * the SQLite database as need be, or let each thread do the SQLite access.
+ * This class is our main class for the server-side program. This class starts a
+ * threaded server via server sockets and then allows each thread to perform
+ * their intended functionality in the ClientHandlerThread class.
  *
  * @author Chris Bass
  */
 public class SQLiteChinookCw {
-    
-        ArrayList<Track> trackList = new ArrayList<>();
-        ArrayList<Genre> genreList = new ArrayList<>();
-
 
     private void connectToClients() {
         System.out.println("Server: Server starting.");
 
-        try (ServerSocket serverSocket = new ServerSocket(2000)) {
+        try (ServerSocket serverSocket = new ServerSocket(2000)) {  // instance of the server socket with the coressponding socket number as the gui
 
             while (true) {
                 System.out.println("Server: Waiting for connecting client...");
@@ -64,10 +51,7 @@ public class SQLiteChinookCw {
 
         SQLiteChinookCw app = new SQLiteChinookCw();
         app.connectToClients();
-          //ArrayList<Track> trackList = new ArrayList<>();
-        //app.viewTracks(trackList);
 
-      
     }
 
     /**
